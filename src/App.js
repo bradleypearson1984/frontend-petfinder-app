@@ -26,7 +26,12 @@ function App() {
         });
       })
       .then(response => {
-        setAnimals(response.data.animals.slice(0, 9));
+        console.log("animals", response.data.animals)
+        //filter out animals without photos or videos or descriptions
+        let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
+
+
+        setAnimals(filteredAnimals.slice(0, 9));
       })
       .catch(error => {
         console.error(error);
