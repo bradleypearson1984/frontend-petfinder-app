@@ -1,9 +1,9 @@
 import React from 'react';
 
-function DisplayPets({ animals }) {
+function DisplayPets({ animals, animalType }) {
   return (
     <div>
-    <h1>Available Dogs</h1>
+    <h1>Available {animalType}s </h1>
       <ul>
         {animals.map(animal => (
           <li key={animal.id}>
