@@ -1,11 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD:src/components/CallAPI.js
-import DisplayPets from './DisplayPets';
-import ShowPet from '../pages/ShowPet';
-=======
 import DisplayPets from './../components/DisplayPets';
->>>>>>> index-main-branch:src/pages/Index.js
 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
 const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
