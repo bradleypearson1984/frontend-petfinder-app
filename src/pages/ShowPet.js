@@ -1,13 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-
-
-
-
-
-
-
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
@@ -42,10 +35,10 @@ const ShowPet = (props) => {
     navigate("/");
   };
 
-
-
-  return (
-    <div>ShowPet</div>
+return (
+    <div>
+      <h1>{pet.name}</h1>
+    </div>
   )
 }
 
