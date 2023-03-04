@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD:src/components/CallAPI.js
 import DisplayPets from './DisplayPets';
 import ShowPet from '../pages/ShowPet';
+=======
+import DisplayPets from './../components/DisplayPets';
+>>>>>>> index-main-branch:src/pages/Index.js
 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
 const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function CallAPI() {
-  const [animals, setAnimals] = useState([]);
-  const [animalType, setAnimalType] = useState('dog');
+function Index({ animals, setAnimals, animalType, setAnimalType}) {
+ 
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -79,4 +82,4 @@ function CallAPI() {
   );
 }
 
-export default CallAPI;
+export default Index;
