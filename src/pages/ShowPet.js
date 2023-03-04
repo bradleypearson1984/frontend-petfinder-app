@@ -5,7 +5,7 @@ const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
   const pets = props.animals;
-  const pet = pet ? pet.find((p) => p._id === id) : null;
+  const pet = pets ? pets.find((p) => p._id === id) : null;
 
   const [comment, addComment] = useState({
     comment: "",
