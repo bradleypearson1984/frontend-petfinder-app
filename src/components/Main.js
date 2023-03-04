@@ -7,7 +7,7 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function CallAPI() {
+function Main() {
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
 
@@ -78,4 +78,4 @@ function CallAPI() {
   );
 }
 
-export default CallAPI;
+export default Main;
