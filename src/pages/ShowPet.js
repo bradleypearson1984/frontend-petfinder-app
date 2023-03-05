@@ -1,18 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-
-
-
-
-
-
-
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
-  const pets = props.animals;
-  const pet = pet ? pet.find((p) => p._id === id) : null; //find pet by id
+  const pet = props.selectedPet;
+
 
   const [comment, addComment] = useState({
     comment: "",
@@ -42,10 +35,15 @@ const ShowPet = (props) => {
     navigate("/");
   };
 
+return (
+    <div>
+      <h1>{pet.name}</h1>
+      <img src={pet.photos[0].medium} alt={pet.name} />
+      <p>{pet.description}</p>
+      <p>{pet.breed}</p>
+      <p>{pet.age}</p>
 
-
-  return (
-    <div>ShowPet</div>
+    </div>
   )
 }
 

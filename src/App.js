@@ -1,5 +1,4 @@
 import React from 'react';
-import Index from './pages/Index';
 import Main from './components/Main';
 
 function App() {
