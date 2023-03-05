@@ -35,7 +35,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
         let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
         
 
-        setAnimals(filteredAnimals);
+        setAnimals(filteredAnimals.slice(0, 19));
       })
       .catch(error => {
         console.error(error);
