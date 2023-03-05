@@ -9,6 +9,7 @@ const Main = () => {
   const [favoritePets, setFavoritePets] = useState([]);
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
+  const [selectedPet, setSelectedPet] = useState({});
   //const API_URL = "http://localhost:3001/favoritepets";
 
 
@@ -21,8 +22,10 @@ const Main = () => {
         setAnimals={setAnimals} 
         animalType={animalType} 
         setAnimalType={setAnimalType} 
+        selectedPet={selectedPet}
+        setSelectedPet={setSelectedPet}
         />} />
-        <Route path="/favoritepets/:id" element={<ShowPet />} />
+        <Route path="/favoritepets/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} />} />
       </Routes>
     </main>
   )

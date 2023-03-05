@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
-  const pets = props.animals;
-  const pet = pets ? pets.find((p) => p._id === id) : null;
+  const pet = props.selectedPet;
+
 
   const [comment, addComment] = useState({
     comment: "",
@@ -38,6 +38,11 @@ const ShowPet = (props) => {
 return (
     <div>
       <h1>{pet.name}</h1>
+      <img src={pet.photos[0].medium} alt={pet.name} />
+      <p>{pet.description}</p>
+      <p>{pet.breed}</p>
+      <p>{pet.age}</p>
+
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function DisplayPets({ animals, animalType }) {
+function DisplayPets({ animals, animalType, selectedPet, setSelectedPet }) {
   return (
     <div>
     <h1>Available {animalType}s </h1>
@@ -9,7 +9,7 @@ function DisplayPets({ animals, animalType }) {
         {animals.map(animal => (
           
           <li key={animal.id}>
-            <Link to={`/favoritepets/${animal.id}`}>
+            <Link to={`/favoritepets/${animal.name}`} onClick = {()=> setSelectedPet(animal)}>
             <h2>{animal.name}</h2>
 
             <img src={animal.photos.length > 0 ? animal.photos[0].medium : ''} alt={animal.name} />
