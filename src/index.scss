@@ -15,23 +15,52 @@ code {
 * {
   box-sizing: border-box;
 }
-
+h1 {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
 div {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 10px;
-  
   ul {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-self: center;
+    justify-content: center;
     list-style-type: none;
-    background-color: #f3d2c1;
-    display: flex;    
+    background-color: #8bd3dd;
     padding: 10px; 
     width: 400px;
+    margin: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #001858;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    display: flex;
+    max-height: 400px;
     justify-content: center;
     justify-self: center;
-    border-width: 3px;
-    border-color: #001858;
-
+        max-width: 350px;
+        min-width: 300px;
+        min-height: 100px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #001858; 
+  }
+  p {
+    display: flex;
+    justify-self: center;
+    
   }
  }
 
@@ -40,14 +69,24 @@ div {
       display: grid;
       grid-template-columns: auto auto auto auto;
     
+      h1 {
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+      }
   }
   div {
     ul {
-     display: flex;
+     display: grid;
+     grid-template-columns: auto auto auto auto ;
      max-width: 400px; 
      min-height: 400px;
       padding: 20px; 
       margin: 15px;
+    }
+    li {
+      padding: 10px;
+      margin: 10px;
     }
     h2 {
       display: flex;

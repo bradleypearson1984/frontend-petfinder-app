@@ -36,8 +36,8 @@ const ShowPet = (props) => {
   };
 
 return (
-    <div>
-      <h1>{pet.name}</h1>
+    <div class='showPet'>
+      <h1 class='showPetName'>{pet.name}</h1>
     </div>
   )
 }
