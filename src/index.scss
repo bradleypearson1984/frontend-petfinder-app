@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,6 +18,7 @@ code {
   box-sizing: border-box;
 }
 h1 {
+  font-family: 'Lilita One', cursive;
   display: flex;
   justify-content: center;
   justify-self: center;
@@ -42,14 +45,15 @@ div {
     border-color: #001858;
   }
   h2 {
+    font-family: 'Lilita One', cursive;
     display: flex;
     justify-content: center;
   }
   img {
     display: flex;
     max-height: 400px;
-    justify-content: center;
-    justify-self: center;
+    align-content: center;
+    align-self: center;
         max-width: 350px;
         min-width: 300px;
         min-height: 100px;
@@ -69,14 +73,14 @@ div {
       display: grid;
       grid-template-columns: auto auto auto auto;
     
+    }
+    div {
       h1 {
         display: flex;
         justify-content: center;
         justify-self: center;
       }
-  }
-  div {
-    ul {
+      ul {
      display: grid;
      grid-template-columns: auto auto auto auto ;
      max-width: 400px; 
