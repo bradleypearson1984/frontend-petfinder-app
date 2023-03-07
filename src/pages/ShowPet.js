@@ -36,18 +36,13 @@ const ShowPet = (props) => {
   };
 
 return (
-<<<<<<< HEAD
     <div class='showPet'>
       <h1 class='showPetName'>{pet.name}</h1>
-=======
-    <div>
-      <h1>{pet.name}</h1>
       <img src={pet.photos[0].medium} alt={pet.name} />
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
 
->>>>>>> 2d25a1c2a37cad99568e584c8902c51b6d009173
     </div>
   )
 }
