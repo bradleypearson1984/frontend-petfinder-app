@@ -40,7 +40,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       .catch(error => {
         console.error(error);
       });
-  }, [animalType]);
+  }, [animalType, setAnimals]);
 
   return (
     <div>
