@@ -38,6 +38,7 @@ const ShowPet = (props) => {
 return (
     <div class='showPet'>
       <h1 class='showPetName'>{pet.name}</h1>
+
       <img src={pet.photos[0].medium} alt={pet.name} />
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
