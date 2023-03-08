@@ -5,45 +5,71 @@ import ShowPet from "../pages/ShowPet";
 
 
 
-const Main = (props) => {
+const Main = ({user}) => {
   const [favoritePets, setFavoritePets] = useState([]);
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
-  const API_URL = "http://localhost:5001/petfinder";
+  const API_URL = "http://localhost:5001/petFinder";
 
-  const getPets = async (props) => {
+  // const getPets = async () => {
+  //   try {
+  //     let token;
+  //     console.log("user", user)
+  //     if (user) {
+  //       token = await user.getIdToken();
+  //       console.log("token", token);
+  //     }
+  //     const response = await fetch(API_URL, {
+  //       method: "GET",
+  //       headers: {
+  //         "Authorization": `Bearer ${token}`
+  //       }
+  //     });
+  //     const data = await response.json();
+  //     console.log("data", data);
+  //     setFavoritePets(data);
+  //   } catch (error) {
+  //     console.log("error", error)
+  //   }
+  // }
+
+  const getPets = async () => {
+
     try {
       let token;
-      console.log("props", props)
-      if (props.user) {
-        token = await props.user.getIdToken();
-        console.log("token", token);
-      }
+      if(user) {
+        token = await user.getIdToken();
+        console.log("token",token)
+      
       const response = await fetch(API_URL, {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Authorization": `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         }
+  
       });
+      console.log(response)
       const data = await response.json();
-      console.log("data", data);
       setFavoritePets(data);
+    }
     } catch (error) {
       console.log("error", error)
     }
   }
-  const createPets = async (person) => {
+
+
+  const createPets = async (favoritePet) => {
     try {
-      if(props.user) {
-        const token = await props.user.getIdToken();
+      if(user) {
+        const token = await user.getIdToken();
         await fetch(API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'Application/json',
             'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify(person),
+          body: JSON.stringify(favoritePet),
         });
         getPets();
       }
@@ -64,14 +90,14 @@ const Main = (props) => {
 
 
   useEffect(() => {
-    if(props.user) {
+    if(user) {
       getPetsRef.current();
     } else {
       setFavoritePets(null)
     }
 
     
-  }, [props.user]);
+  }, [user]);
 
 
 
