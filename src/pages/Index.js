@@ -7,7 +7,7 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet}) {
+function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets}) {
  
 
   const handleAnimalTypeChange = (event) => {
@@ -72,6 +72,9 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="rabbit">Rabbit</label>
+      </div>
+      <div>
+        <button onClick={()=>getPets()}>Get Pets</button>
       </div>
       <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
     </div>

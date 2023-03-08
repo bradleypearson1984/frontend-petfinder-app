@@ -114,12 +114,24 @@ div {
 body {
   background-color: #55423d;
 }
-li {
-  background-color: #ffc0ad;
-}
-img {
-  border-style: solid;
-  border-width: 3px;
-  border-color: #9656a1;
+div {
+
+  li {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-self: center;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #9656a1;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #271c19;
+  }
+  img {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #ffc0ad;
+  }
 }
 }
