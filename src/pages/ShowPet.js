@@ -35,16 +35,19 @@ const ShowPet = (props) => {
     navigate("/");
   };
 
+  const addToFavorites = () => {
+    console.log(props.selectedPet)
+  }
+
 return (
     <div class='showPet'>
       <h1 class='showPetName'>{pet.name}</h1>
-    <div>
-      <h1>{pet.name}</h1>
       <img src={pet.photos[0].medium} alt={pet.name} />
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
-
+      <p><button id="favorites" onClick={addToFavorites}>Add to favorites</button></p>
+      
     </div>
   )
 }
