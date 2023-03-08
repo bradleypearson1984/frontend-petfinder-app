@@ -12,9 +12,10 @@ const Main = (props) => {
   const [selectedPet, setSelectedPet] = useState({});
   const API_URL = "http://localhost:5001/petfinder";
 
-  const getPets = async () => {
+  const getPets = async (props) => {
     try {
       let token;
+      console.log("props", props)
       if (props.user) {
         token = await props.user.getIdToken();
         console.log("token", token);
@@ -86,6 +87,7 @@ const Main = (props) => {
         setAnimalType={setAnimalType} 
         selectedPet={selectedPet}
         setSelectedPet={setSelectedPet}
+        getPets={getPets}
         />} />
         <Route path="/favoritepets/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} />} />
       </Routes>
