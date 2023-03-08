@@ -25,7 +25,7 @@ const Main = () => {
         selectedPet={selectedPet}
         setSelectedPet={setSelectedPet}
         />} />
-        <Route path="/favoritepets/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} />} />
+        <Route path="/favoritepets/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} user ={user} />} />
       </Routes>
     </main>
   )

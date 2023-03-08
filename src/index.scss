@@ -109,3 +109,15 @@ div {
     }
   }
 }
+
+@media (prefers-color-scheme: dark) {
+body {
+  background-color: #55423d;
+}
+li {
+  background-color: #ffc0ad;
+}
+img {
+  border-color: #9656a1;
+}
+}

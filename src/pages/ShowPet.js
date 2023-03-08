@@ -42,9 +42,33 @@ return (
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
+{/* {user ? (
+  //LOGGED IN VERSION
+  <li>
+  <button onClick={logout}>Logout</button>
+</li>
+ ); (
+  //LOGGED OUT VERSION 
+  <li>
+  <button onClick={login}>Login</button>
+</li>
+)} */}
 
+{user ? (
+        <>
+            
+            <li>
+                <button>logged in</button>
+               </li>
+            
+        </>
+    ) : (
+        <li>
+            <button>Logged out</button>
+        </li>
+    )}
     </div>
   )
-}
+}; 
 
 export default ShowPet

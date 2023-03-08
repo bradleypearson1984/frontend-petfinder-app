@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <Header user={user} />
       <Main/>
+      <ShowPet user={user} />
     </div>
   );
 }
