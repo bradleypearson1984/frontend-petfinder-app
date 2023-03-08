@@ -1,11 +1,11 @@
-// import login and logout from firebase.js
+
 // import { login, logout } from '../firebase.js';
 // import {Link} from 'react-router-dom';
 
 
 
 // const Header = ({user}) => {
-//   return (3
+//   return (
 //     <nav className='nav'>
 //         <Link to='/'>
 //             <div>Pet Purpose App</div>

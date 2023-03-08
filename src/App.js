@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { auth } from './firebase.js';
 import { useEffect, useState } from 'react';
 
+
 function App() {
 
   const [ user, setUser ] = useState(null);
@@ -17,9 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} />
-      <Main/>
-      <ShowPet user={user} />
+      {/* <Header user={user} /> */}
+      <Main user={user}/>
+      
     </div>
   );
 }
