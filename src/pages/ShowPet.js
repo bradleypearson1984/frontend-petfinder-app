@@ -12,19 +12,18 @@ const ShowPet = (props) => {
   // });
   // comment feature needs option to edit and delete comment too
 
-  const [favorite, addFavorite] = useState({
-    animals: {
-      name: ""
-    }  
-  },
-    console.log(props.selectedPet.name),
-  );
+  
+
 
   const handleChange = (event) => {
-    addFavorite((prevState) => ({
+    props.addFavorite((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
+props.createPets(props.favorite);
+// link back to index page
+navigate("/");
+
   };
 
   // const handleUpdate = (event) => {
