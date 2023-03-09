@@ -6,33 +6,33 @@ import ShowPet from "../pages/ShowPet";
 
 
 const Main = ({user}) => {
-  const [favoritePets, setFavoritePets] = useState([]);
+  const [favoritePets, setFavoritePets] = useState([]); // returns from mongoDB
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
   const API_URL = "http://localhost:5001/petFinder";
-
-  // const getPets = async () => {
-  //   try {
-  //     let token;
-  //     console.log("user", user)
-  //     if (user) {
-  //       token = await user.getIdToken();
-  //       console.log("token", token);
-  //     }
-  //     const response = await fetch(API_URL, {
-  //       method: "GET",
-  //       headers: {
-  //         "Authorization": `Bearer ${token}`
-  //       }
-  //     });
-  //     const data = await response.json();
-  //     console.log("data", data);
-  //     setFavoritePets(data);
-  //   } catch (error) {
-  //     console.log("error", error)
-  //   }
-  // }
+  const [favorite, addFavorite] = useState({ // sends to mongoDB
+    pet: {
+      description: "",
+      breed: "",
+      age: "",
+      gender: "",
+      video: "",
+      status: "",
+      contact: {
+        email: "",
+        phone: "",
+        address: {
+          address1: "",
+          city: "",
+          state: "",
+          postcode: "",
+          country: "",
+        },
+      },
+    },
+  });
+ 
 
   const getPets = async () => {
 
@@ -132,8 +132,9 @@ const Main = ({user}) => {
         setSelectedPet={setSelectedPet}
         getPets={getPets}
         user = {user}
+        favoritePets={favoritePets}
         />} />
-        <Route path="/pet/:id"  element={<ShowPet animals={animals} createPets={createPets} selectedPet={selectedPet} />} />
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} favorite={favorite} addFavorite={addFavorite} createPets={createPets} selectedPet={selectedPet} />} />
       </Routes>
     </main>
   )

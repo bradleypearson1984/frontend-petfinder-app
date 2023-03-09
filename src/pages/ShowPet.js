@@ -12,35 +12,15 @@ const ShowPet = (props) => {
   // });
   // comment feature needs option to edit and delete comment too
 
-  const [favorite, addFavorite] = useState({
-    pet: {
-      description: "",
-      breed: "",
-      age: "",
-      gender: "",
-      video: "",
-      status: "",
-      contact: {
-        email: "",
-        phone: "",
-        address: {
-          address1: "",
-          city: "",
-          state: "",
-          postcode: "",
-          country: "",
-        },
-      },
-    },
-  });
   
 
+
   const handleChange = (event) => {
-    addFavorite((prevState) => ({
+    props.addFavorite((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-props.createPets(favorite);
+props.createPets(props.favorite);
 // link back to index page
 navigate("/");
 

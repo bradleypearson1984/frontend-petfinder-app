@@ -7,21 +7,21 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user}) {
+function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user, favoritePets, setFavoritePets, deletePets }) {
  
   const loaded = () => {
-    return props.people.map((person) => (
-      <div key={person._id} className="person">
-        <Link to={`/people/${person._id}`}>
-          <h1>{person.name}</h1>
-        </Link>
-        <h3>{person.title}</h3>
+    return favoritePets.map((pet) => (
+      <div key={pet._id} className="pet">
+        <h1>{pet.name}</h1>
+        <h4>{pet.age}</h4>
+        <h4>{pet.breed}</h4>
+        <h4>{pet.gender}</h4>
       </div>
     )
   )};
 
   const loading = () => {
-    return <h1>Loading...</h1>;
+    return <h1>No favorite pets to display...</h1>;
   };
 
   const handleAnimalTypeChange = (event) => {
@@ -58,7 +58,6 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
 
   return (
     <div>
-      {props.people ? loaded() : loading()}
       <div>
         <input
           type="radio"
@@ -91,6 +90,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       <div>
         <button onClick={()=>getPets()}>Get Pets</button>
       </div>
+      {favoritePets ? loaded() : loading()}
       <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
     </div>
   );
