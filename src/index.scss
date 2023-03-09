@@ -29,27 +29,59 @@ h1 {
 //////////
 .nav { 
   width: 100%;
-background-color: red;
-display: inline-flex;
-justify-content: flex-end;
+background-color: #55423d;
+display: grid;
+// justify-content: flex-end;
+grid-template-columns: 
+1fr
+2fr
+1fr;  
   .headerDiv {
-    background-color: blue;
-    justify-self: flex-start;
-    align-self:flex-start;
+  display: flex;
+  align-items: center;
+    background-color: #55423d;
+    grid-column: 1;
+    font-family: 'Lilita One', cursive;
+    font-size: 25px;
+    padding: 5px;
+  
+    // justify-self: flex-start;
+    // align-self:flex-start;
   }
   ul {
+    display: flex;
     list-style: none;
+    grid-column: 3;
+    padding: 5px;
     .welcome {
+  // margin: 5px;
+  max-width: 70px;
+  font-family: 'Lilita One', cursive;
       
-      background-color: green;
+    
     }
     .google-profile-pic {
+      grid-column: 3;
       border-radius: 50%;
+      margin: 5px;
+      max-width: 50px;
+    }
+    .buttonArea {
+    display: flex;
+    align-items: center;
     }
     .logoutButton {
+align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
 
     }
     .loginButton {
+      align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
 
     }
   }
@@ -141,10 +173,67 @@ ul {
 }
  @media only screen and (min-width: 770px) {
   body {
-      display: grid;
-      grid-template-columns: auto auto auto auto;
+      // display: grid;
+      // grid-template-columns: auto auto auto auto;
     
     }
+    .nav { 
+      width: 100%;
+    background-color: #55423d;
+    display: grid;
+    // justify-content: flex-end;
+    grid-template-columns: 
+    1fr
+    2fr
+    1fr;  
+      .headerDiv {
+       
+        grid-column: 1;
+        font-family: 'Lilita One', cursive;
+      
+        // justify-self: flex-start;
+        // align-self:flex-start;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+        grid-column: 3;
+        padding: 5px;
+        .welcome {
+      // margin: 5px;
+      max-width: 70px;
+      font-family: 'Lilita One', cursive;
+          
+         
+        }
+        .google-profile-pic {
+          grid-column: 3;
+          border-radius: 50%;
+          margin: 5px;
+          max-width: 50px;
+        }
+        .buttonArea {
+        display: flex;
+        align-items: center;
+        }
+        .logoutButton {
+    align-content: center;
+    align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+        }
+        .loginButton {
+          align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+    
+        }
+      }
+    }
+    
+    
     .displayPetDiv {
       .available {
         display: flex;

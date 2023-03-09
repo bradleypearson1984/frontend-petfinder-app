@@ -7,8 +7,8 @@ import {Link} from 'react-router-dom';
 const Header = ({user}) => {
   return (
     <nav className='nav'>
-        <Link to='/'>
-            <div className="headerDiv" >Pet Purpose App</div>
+        <Link to='/' className="headerDiv" >
+            <div  >Pet Purpose App</div>
         </Link>
 <ul>
     {user ? (
@@ -17,7 +17,7 @@ const Header = ({user}) => {
             <li>
                 <img className='google-profile-pic' src={user.photoURL} alt={user.displayName} />
                </li>
-            <li>
+            <li className="buttonArea">
                 <button className='logoutButton' onClick={logout}>Logout</button>
             </li>
         </>
