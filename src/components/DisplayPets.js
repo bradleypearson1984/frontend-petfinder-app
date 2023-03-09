@@ -8,9 +8,15 @@ function DisplayPets({ animals, animalType, selectedPet, setSelectedPet }) {
       <ul  >
         {animals.map(animal => (
           
+<<<<<<< HEAD
           <li className="indexCard" key={animal.id}>
             <Link to={`/favoritepets/${animal.name}`} onClick = {()=> setSelectedPet(animal)}>
             <h2 className="petName"  >{animal.name}</h2>
+=======
+          <li key={animal.id}>
+            <Link to={`/pet/${animal.name}`} onClick = {()=> setSelectedPet(animal)}>
+            <h2>{animal.name}</h2>
+>>>>>>> 7bacfd1d675cc527727782867ca0ef391f205980
 
             <img className="pic" src={animal.photos.length > 0 ? animal.photos[0].medium : ''} alt={animal.name} />
             </Link>

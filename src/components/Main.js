@@ -6,33 +6,33 @@ import ShowPet from "../pages/ShowPet";
 
 
 const Main = ({user}) => {
-  const [favoritePets, setFavoritePets] = useState([]);
+  const [favoritePets, setFavoritePets] = useState([]); // returns from mongoDB
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
   const API_URL = "http://localhost:5001/petFinder";
-
-  // const getPets = async () => {
-  //   try {
-  //     let token;
-  //     console.log("user", user)
-  //     if (user) {
-  //       token = await user.getIdToken();
-  //       console.log("token", token);
-  //     }
-  //     const response = await fetch(API_URL, {
-  //       method: "GET",
-  //       headers: {
-  //         "Authorization": `Bearer ${token}`
-  //       }
-  //     });
-  //     const data = await response.json();
-  //     console.log("data", data);
-  //     setFavoritePets(data);
-  //   } catch (error) {
-  //     console.log("error", error)
-  //   }
-  // }
+  const [favorite, addFavorite] = useState({ // sends to mongoDB
+    pet: {
+      description: "",
+      breed: "",
+      age: "",
+      gender: "",
+      video: "",
+      status: "",
+      contact: {
+        email: "",
+        phone: "",
+        address: {
+          address1: "",
+          city: "",
+          state: "",
+          postcode: "",
+          country: "",
+        },
+      },
+    },
+  });
+ 
 
   const getPets = async () => {
 
@@ -59,7 +59,7 @@ const Main = ({user}) => {
   }
 
 
-  const createPets = async (favoritePet) => {
+  const createPets = async (favorite) => {
     try {
       if(user) {
         const token = await user.getIdToken();
@@ -69,7 +69,7 @@ const Main = ({user}) => {
             'Content-Type': 'Application/json',
             'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify(favoritePet),
+          body: JSON.stringify(favorite),
         });
         getPets();
       }
@@ -77,6 +77,23 @@ const Main = ({user}) => {
     } catch (error) {
     }
   }
+  const deletePets = async (id) => {
+    try {
+      if(user) {
+        const token = await user.getIdToken();
+        await fetch(`${API_URL}/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'Application/json',
+          }
+        });
+        getPets();
+      }
+    } catch (error) {
+      console.log("error", error)
+    }
+  }
+
 
 // invoke useRef hook to create a ref
 // create the mutable ref object and assign it to the current property
@@ -114,8 +131,14 @@ const Main = ({user}) => {
         selectedPet={selectedPet}
         setSelectedPet={setSelectedPet}
         getPets={getPets}
+        user = {user}
+        favoritePets={favoritePets}
         />} />
+<<<<<<< HEAD
         <Route path="/favoritepets/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet}  />} />
+=======
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} favorite={favorite} addFavorite={addFavorite} createPets={createPets} selectedPet={selectedPet} />} />
+>>>>>>> 7bacfd1d675cc527727782867ca0ef391f205980
       </Routes>
     </main>
   )
