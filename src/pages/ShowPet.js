@@ -25,6 +25,8 @@ const ShowPet = (props) => {
       ...prevState,
       [event.target.name]: event.target.value,
     }));
+props.createPets(favorite)
+
   };
 
   // const handleUpdate = (event) => {
