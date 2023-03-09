@@ -20,15 +20,53 @@ code {
 h1 {
   font-family: 'Lilita One', cursive;
   display: flex;
-  justify-content: center;
-  justify-self: center;
+  // justify-content: center;
+  // justify-self: center;
 }
-div {
-  ul {
-    display: grid;
-    grid-template-columns: 1fr;
+
+///////////
+/// HEADER
+//////////
+.nav { 
+  width: 100%;
+background-color: red;
+display: inline-flex;
+justify-content: flex-end;
+  .headerDiv {
+    background-color: blue;
+    justify-self: flex-start;
+    align-self:flex-start;
   }
-  li {
+  ul {
+    list-style: none;
+    .welcome {
+      
+      background-color: green;
+    }
+    .google-profile-pic {
+      border-radius: 50%;
+    }
+    .logoutButton {
+
+    }
+    .loginButton {
+
+    }
+  }
+}
+
+
+////////
+/// INDEX
+//////////
+
+
+ul {
+  
+      display: grid;
+    grid-template-columns: 1fr;
+
+  .indexCard {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -44,12 +82,12 @@ div {
     border-radius: 30px;
     border-color: #001858;
   }
-  h2 {
+  .petName {
     font-family: 'Lilita One', cursive;
     display: flex;
     justify-content: center;
   }
-  img {
+  .pic {
     display: flex;
     max-height: 400px;
     align-content: center;
@@ -61,21 +99,54 @@ div {
         border-width: 3px;
         border-color: #001858; 
   }
-  p {
+  .indexDescription {
     display: flex;
     justify-self: center;
     
   }
  }
+/////////
+/// SHOW
+////////
+.showPetDiv {
+  
+  .showPetName {
 
+  }
+  .showPic {
+    display: flex;
+    max-height: 400px;
+    align-content: center;
+    align-self: center;
+        max-width: 350px;
+        min-width: 300px;
+        min-height: 100px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #001858; 
+
+  }
+  .showDescription {
+
+  }
+  .showBreed {
+    display: flex;
+    justify-self: center;
+  }
+  .showAge {
+    display: flex;
+    justify-self: center;
+
+  }
+}
  @media only screen and (min-width: 770px) {
   body {
       display: grid;
       grid-template-columns: auto auto auto auto;
     
     }
-    div {
-      h1 {
+    .displayPetDiv {
+      .available {
         display: flex;
         justify-content: center;
         justify-self: center;
@@ -88,22 +159,22 @@ div {
       padding: 20px; 
       margin: 15px;
     }
-    li {
+    .indexCard {
       padding: 10px;
       margin: 10px;
     }
-    h2 {
+    .petName {
       display: flex;
       justify-self: center;
       justify-content: center;
     }
-    p {
+    .indexDescription {
       display: flex;
       flex-direction: column;
       padding: 10px; 
       width: 400px;
     }
-    img {
+    .pic {
       max-width: 350px;
       justify-self: center;
     }
@@ -114,9 +185,9 @@ div {
 body {
   background-color: #55423d;
 }
-div {
+.displayPetDiv {
 
-  li {
+  .indexCard {
     display: flex;
     flex-direction: column;
     margin: 10px;

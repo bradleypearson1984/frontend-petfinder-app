@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header user={user} /> */}
+      <Header user={user} />
       <Main user={user}/>
       
     </div>
