@@ -25,7 +25,9 @@ const ShowPet = (props) => {
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-props.createPets(favorite)
+props.createPets(favorite);
+// link back to index page
+navigate("/");
 
   };
 
