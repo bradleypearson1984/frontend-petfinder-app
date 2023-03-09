@@ -59,7 +59,7 @@ const Main = ({user}) => {
   }
 
 
-  const createPets = async (favoritePet) => {
+  const createPets = async (favorite) => {
     try {
       if(user) {
         const token = await user.getIdToken();
@@ -69,7 +69,7 @@ const Main = ({user}) => {
             'Content-Type': 'Application/json',
             'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify(favoritePet),
+          body: JSON.stringify(favorite),
         });
         getPets();
       }
@@ -77,6 +77,23 @@ const Main = ({user}) => {
     } catch (error) {
     }
   }
+  const deletePets = async (id) => {
+    try {
+      if(user) {
+        const token = await user.getIdToken();
+        await fetch(`${API_URL}/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'Application/json',
+          }
+        });
+        getPets();
+      }
+    } catch (error) {
+      console.log("error", error)
+    }
+  }
+
 
 // invoke useRef hook to create a ref
 // create the mutable ref object and assign it to the current property
@@ -114,6 +131,7 @@ const Main = ({user}) => {
         selectedPet={selectedPet}
         setSelectedPet={setSelectedPet}
         getPets={getPets}
+        user = {user}
         />} />
         <Route path="/pet/:id"  element={<ShowPet animals={animals} createPets={createPets} selectedPet={selectedPet} />} />
       </Routes>
