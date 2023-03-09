@@ -7,33 +7,44 @@ const ShowPet = (props) => {
   const pet = props.selectedPet;
 
 
-  const [comment, addComment] = useState({
-    comment: "",
-  });
-
+  // const [comment, addComment] = useState({
+  //   comment: "",
+  // });
   // comment feature needs option to edit and delete comment too
 
+  const [favorite, addFavorite] = useState({
+    animals: {
+      name: ""
+    }  
+  },
+    console.log(props.selectedPet.name),
+  );
+
   const handleChange = (event) => {
-    addComment((prevState) => ({
+    addFavorite((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const handleUpdate = (event) => {
-    event.preventDefault();
-    props.updatePetComment(comment, pet._id);
-  };
+  // const handleUpdate = (event) => {
+  //   event.preventDefault();
+  //   props.updatePetComment(comment, pet._id);
+  // };
 
-  const handleDeleteComment = () => {
-    props.deletePetComment(pet._id);
-    navigate("/");
-  };
+  // const handleDeleteComment = () => {
+  //   props.deletePetComment(pet._id);
+  //   navigate("/");
+  // };
 
-  const handleDeletePet = () => {
-    props.deletePet(pet._id);
-    navigate("/");
-  };
+  // const handleDeletePet = () => {
+  //   props.deletePet(pet._id);
+  //   navigate("/");
+  // };
+
+  // const handleFavorite = () => {
+  //   console.log(props.selectedPet)
+  // }
 
 return (
     <div class='showPet'>
@@ -43,7 +54,11 @@ return (
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
-
+      <p><input
+      type="submit" 
+      id="favorites" 
+      onClick={handleChange} /></p>
+      
     </div>
   )
 }
