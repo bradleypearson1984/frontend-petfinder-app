@@ -1,15 +1,28 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import DisplayPets from './DisplayPets';
+import DisplayPets from './../components/DisplayPets';
 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
 const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function CallAPI() {
-  const [animals, setAnimals] = useState([]);
-  const [animalType, setAnimalType] = useState('dog');
+function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user, favoritePets, setFavoritePets, deletePets }) {
+ 
+  const loaded = () => {
+    return favoritePets.map((pet) => (
+      <div key={pet._id} className="pet">
+        <h1>{pet.name}</h1>
+        <h4>{pet.age}</h4>
+        <h4>{pet.breed}</h4>
+        <h4>{pet.gender}</h4>
+      </div>
+    )
+  )};
+
+  const loading = () => {
+    return <h1>No favorite pets to display...</h1>;
+  };
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -34,13 +47,14 @@ function CallAPI() {
         console.log("animals", response.data.animals)
         //filter out animals without photos or videos or descriptions
         let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
+        
 
-        setAnimals(filteredAnimals.slice(0, 9));
+        setAnimals(filteredAnimals.slice(0, 19));
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType]);
+  }, [animalType, setAnimals]);
 
   return (
     <div>
@@ -73,9 +87,13 @@ function CallAPI() {
         />
         <label htmlFor="rabbit">Rabbit</label>
       </div>
-      <DisplayPets animalType ={animalType} animals={animals} />
+      <div>
+        <button onClick={()=>getPets()}>Get Pets</button>
+      </div>
+      {favoritePets ? loaded() : loading()}
+      <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
     </div>
   );
 }
 
-export default CallAPI;
+export default Index;

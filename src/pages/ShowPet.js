@@ -1,51 +1,81 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-
-
-
-
-
-
-
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
-  const pets = props.animals;
-  const pet = pet ? pet.find((p) => p._id === id) : null;
+  const pet = props.selectedPet;
 
-  const [comment, addComment] = useState({
-    comment: "",
-  });
 
+  // const [comment, addComment] = useState({
+  //   comment: "",
+  // });
   // comment feature needs option to edit and delete comment too
 
+  
+
+
   const handleChange = (event) => {
-    addComment((prevState) => ({
+    props.addFavorite((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
+props.createPets(props.favorite);
+// link back to index page
+navigate("/");
+
   };
 
-  const handleUpdate = (event) => {
-    event.preventDefault();
-    props.updatePetComment(comment, pet._id);
-  };
+  // const handleUpdate = (event) => {
+  //   event.preventDefault();
+  //   props.updatePetComment(comment, pet._id);
+  // };
 
-  const handleDeleteComment = () => {
-    props.deletePetComment(pet._id);
-    navigate("/");
-  };
+  // const handleDeleteComment = () => {
+  //   props.deletePetComment(pet._id);
+  //   navigate("/");
+  // };
 
-  const handleDeletePet = () => {
-    props.deletePet(pet._id);
-    navigate("/");
-  };
+  // const handleDeletePet = () => {
+  //   props.deletePet(pet._id);
+  //   navigate("/");
+  // };
+
+  // const handleFavorite = () => {
+  //   console.log(props.selectedPet)
+  // }
+
+return (
+    <div class='showPet'>
+      <h1 class='showPetName'>{pet.name}</h1>
+
+      <img src={pet.photos[0].medium} alt={pet.name} />
+      <p>{pet.description}</p>
+      <p>{pet.breed}</p>
+      <p>{pet.age}</p>
+      <p>{pet.gender}</p>
+      <p>{pet.video}</p>
+      <p>{pet.status}</p>
+      <p>{pet.contact.email}</p>
+      <p>{pet.contact.phone}</p>
+       <div>
+      <p>
+        {pet.contact.address.address1} 
+        {pet.contact.address.city}
+        {pet.contact.address.state}
+        {pet.contact.address.postcode}
+        {pet.contact.address.country}
+      </p>
+       </div>
+      
 
 
-
-  return (
-    <div>ShowPet</div>
+      <p><input
+      type="submit" 
+      id="favorites" 
+      onClick={handleChange} /></p>
+      
+    </div>
   )
 }
 
