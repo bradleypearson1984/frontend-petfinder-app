@@ -46,7 +46,6 @@ navigate("/");
   // }
 
 return (
-<<<<<<< HEAD
     <div className="showPetDiv">
       <h1 className="showPetName">{pet.name}</h1>
 
@@ -79,37 +78,6 @@ return (
             <button>Logged out</button>
         </li>
     )} */}
-=======
-    <div class='showPet'>
-      <h1 class='showPetName'>{pet.name}</h1>
-
-      <img src={pet.photos[0].medium} alt={pet.name} />
-      <p>{pet.description}</p>
-      <p>{pet.breed}</p>
-      <p>{pet.age}</p>
-      <p>{pet.gender}</p>
-      <p>{pet.video}</p>
-      <p>{pet.status}</p>
-      <p>{pet.contact.email}</p>
-      <p>{pet.contact.phone}</p>
-       <div>
-      <p>
-        {pet.contact.address.address1} 
-        {pet.contact.address.city}
-        {pet.contact.address.state}
-        {pet.contact.address.postcode}
-        {pet.contact.address.country}
-      </p>
-       </div>
-      
-
-
-      <p><input
-      type="submit" 
-      id="favorites" 
-      onClick={handleChange} /></p>
-      
->>>>>>> 7bacfd1d675cc527727782867ca0ef391f205980
     </div>
   )
 }; 
