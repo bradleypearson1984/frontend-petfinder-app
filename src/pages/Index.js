@@ -7,8 +7,22 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets}) {
+function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user}) {
  
+  const loaded = () => {
+    return props.people.map((person) => (
+      <div key={person._id} className="person">
+        <Link to={`/people/${person._id}`}>
+          <h1>{person.name}</h1>
+        </Link>
+        <h3>{person.title}</h3>
+      </div>
+    )
+  )};
+
+  const loading = () => {
+    return <h1>Loading...</h1>;
+  };
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -44,6 +58,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
 
   return (
     <div>
+      {props.people ? loaded() : loading()}
       <div>
         <input
           type="radio"
