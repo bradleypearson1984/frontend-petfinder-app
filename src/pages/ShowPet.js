@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
+
+
+
   const pet = props.selectedPet;
 
 
@@ -46,40 +49,37 @@ navigate("/");
   // }
 
 return (
-    <div className="showPetDiv">
-      <h1 className="showPetName">{pet.name}</h1>
+    <div class='showPet'>
+      <h1 class='showPetName'>{pet.name}</h1>
 
-      <img className="showPic" src={pet.photos[0].medium} alt={pet.name} />
-      <p className="showDescription" >{pet.description}</p>
-      <p className="showBreed" >{pet.breed}</p>
-      <p className="showAge" >{pet.age}</p>
-{/* {user ? (
-  //LOGGED IN VERSION
-  <li>
-  <button onClick={logout}>Logout</button>
-</li>
- ); (
-  //LOGGED OUT VERSION 
-  <li>
-  <button onClick={login}>Login</button>
-</li>
-)} */}
-{/* 
-{user ? (
-        <>
-            
-            <li>
-                <button>logged in</button>
-               </li>
-            
-        </>
-    ) : (
-        <li>
-            <button>Logged out</button>
-        </li>
-    )} */}
+      <img src={pet.photos[0].medium} alt={pet.name} />
+      <p>{pet.description}</p>
+      <p>{pet.breed}</p>
+      <p>{pet.age}</p>
+      <p>{pet.gender}</p>
+      <p>{pet.video}</p>
+      <p>{pet.status}</p>
+      <p>{pet.contact.email}</p>
+      <p>{pet.contact.phone}</p>
+       <div>
+      <p>
+        {pet.contact.address.address1} 
+        {pet.contact.address.city}
+        {pet.contact.address.state}
+        {pet.contact.address.postcode}
+        {pet.contact.address.country}
+      </p>
+       </div>
+      
+
+
+      <p><input
+      type="submit" 
+      id="favorites" 
+      onClick={handleChange} /></p>
+      
     </div>
   )
-}; 
+}
 
 export default ShowPet
