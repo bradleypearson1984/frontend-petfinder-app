@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Main from '../components/Main';
 
 const ShowPet = (props) => {
   const navigate = useNavigate();
@@ -13,39 +12,19 @@ const ShowPet = (props) => {
   // });
   // comment feature needs option to edit and delete comment too
 
-  const [favorite, addFavorite] = useState({},
-    console.log(pet),
-    console.log(id)
-  );
+  
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   props.createPets(favorite);
-  //   addFavorite({
-  //     animals: {
-  //       name: ""
-  //     }
-  //   })
-  // };
 
-  const createPets = async (favoritePet) => {
-    try {
-      if(user) {
-        const token = await user.getIdToken();
-        await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'Application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(favoritePet),
-        });
-        getPets();
-      }
-     
-    } catch (error) {
-    }
-  }
+  const handleChange = (event) => {
+    props.addFavorite((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+props.createPets(props.favorite);
+// link back to index page
+navigate("/");
+
+  };
 
   // const handleUpdate = (event) => {
   //   event.preventDefault();
@@ -94,8 +73,7 @@ return (
       <p><input
       type="submit" 
       id="favorites" 
-      value="Add to favorites"
-      onClick={createPets} /></p>
+      onClick={handleChange} /></p>
       
     </div>
   )
