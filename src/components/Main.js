@@ -13,12 +13,14 @@ const Main = ({user}) => {
   const API_URL = "http://localhost:5001/petFinder";
   const [favorite, addFavorite] = useState({ // sends to mongoDB
     pet: {
+      name: "",
+      photo: "",
+      age: "",
       description: "",
       breed: "",
-      age: "",
       gender: "",
-      video: "",
       status: "",
+    },
       contact: {
         email: "",
         phone: "",
@@ -31,7 +33,7 @@ const Main = ({user}) => {
         },
       },
     },
-  });
+  );
  
 
   const getPets = async () => {
