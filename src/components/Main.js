@@ -11,30 +11,6 @@ const Main = ({user}) => {
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
   const API_URL = "http://localhost:5001/petFinder";
-  const [favorite, addFavorite] = useState({ // sends to mongoDB
-    pet: {
-      name: "",
-      photo: "",
-      age: "",
-      description: "",
-      breed: "",
-      gender: "",
-      status: "",
-    },
-      contact: {
-        email: "",
-        phone: "",
-        address: {
-          address1: "",
-          city: "",
-          state: "",
-          postcode: "",
-          country: "",
-        },
-      },
-    },
-  );
- 
 
   const getPets = async () => {
 
@@ -42,7 +18,6 @@ const Main = ({user}) => {
       let token;
       if(user) {
         token = await user.getIdToken();
-        console.log("token",token)
       
       const response = await fetch(API_URL, {
         method: 'GET',
@@ -51,7 +26,6 @@ const Main = ({user}) => {
         }
   
       });
-      console.log(response)
       const data = await response.json();
       setFavoritePets(data);
     }
@@ -61,7 +35,7 @@ const Main = ({user}) => {
   }
 
 
-  const createPets = async (favorite) => {
+  const createPets = async (pet) => {
     try {
       if(user) {
         const token = await user.getIdToken();
@@ -71,9 +45,8 @@ const Main = ({user}) => {
             'Content-Type': 'Application/json',
             'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify(favorite),
+          body: JSON.stringify(pet),
         });
-        console.log("CREATE pets called", "favorite", favorite)
         getPets();
       }
      
@@ -137,7 +110,7 @@ const Main = ({user}) => {
         user = {user}
         favoritePets={favoritePets}
         />} />
-        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} favorite={favorite} addFavorite={addFavorite} createPets={createPets} />} />
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} createPets={createPets} />} />
       </Routes>
     </main>
   )

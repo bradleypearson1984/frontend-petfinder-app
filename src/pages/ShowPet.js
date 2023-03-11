@@ -12,18 +12,10 @@ const ShowPet = (props) => {
 
 
 
-  const handleChange = (event) => {
-    props.addFavorite((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-props.createPets(props.favorite);
-// link back to index page
-console.log("CREATE pets called", "props.favorite", props.favorite )
-
+  const handleChange = () => {
+    props.createPets(pet);
+    console.log("This pet's contact info has been saved to MongoDB:", pet )
   };
-
-  
 
 return (
     <div className='showPet'>
