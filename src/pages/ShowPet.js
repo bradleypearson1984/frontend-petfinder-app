@@ -9,6 +9,21 @@ const ShowPet = (props) => {
 
   const pet = props.selectedPet;
 
+  //alter just the pet.description using 
+  const removeSpecChar = (props) => {
+    let result = props
+      .replace(/&quot;/g, "''")
+      .replace(/&#039;/g, "'")
+      .replace(/&shy;/g, "-")
+      .replace(/&amp;/g, "&")
+      .replace(/&Iacute;/g, "í")
+      .replace(/&uuml;/g, "ü")
+      .replace(/&rsquo;/g, "’")
+      .replace(/&eacute;/g, "é")
+      .replace(/&Uuml;/g, "Ü");
+
+    return result;
+  };
 
 
 
@@ -29,7 +44,7 @@ return (
       <h1 className='showPetName'>{pet.name}</h1>
 
       <img src={pet.photos[0].medium} alt={pet.name} />
-      <p>{pet.description}</p>
+      <p>{removeSpecChar(pet.description)}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
       <p>{pet.gender}</p>
@@ -40,9 +55,9 @@ return (
        <div>
       <p>
         {pet.contact.address.address1} 
-        {pet.contact.address.city}
-        {pet.contact.address.state}
-        {pet.contact.address.postcode}
+        {pet.contact.address.city}, 
+        {pet.contact.address.state}{" "}
+        {pet.contact.address.postcode}{" "} 
         {pet.contact.address.country}
       </p>
        </div>
