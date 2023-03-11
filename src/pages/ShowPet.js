@@ -3,19 +3,13 @@ import { useState, useEffect } from 'react';
 
 const ShowPet = (props) => {
   const navigate = useNavigate();
-  const {id} = useParams();
+  
 
 
 
   const pet = props.selectedPet;
 
 
-  // const [comment, addComment] = useState({
-  //   comment: "",
-  // });
-  // comment feature needs option to edit and delete comment too
-
-  
 
 
   const handleChange = (event) => {
@@ -25,28 +19,11 @@ const ShowPet = (props) => {
     }));
 props.createPets(props.favorite);
 // link back to index page
-navigate("/");
+console.log("CREATE pets called", "props.favorite", props.favorite )
 
   };
 
-  // const handleUpdate = (event) => {
-  //   event.preventDefault();
-  //   props.updatePetComment(comment, pet._id);
-  // };
-
-  // const handleDeleteComment = () => {
-  //   props.deletePetComment(pet._id);
-  //   navigate("/");
-  // };
-
-  // const handleDeletePet = () => {
-  //   props.deletePet(pet._id);
-  //   navigate("/");
-  // };
-
-  // const handleFavorite = () => {
-  //   console.log(props.selectedPet)
-  // }
+  
 
 return (
     <div className='showPet'>

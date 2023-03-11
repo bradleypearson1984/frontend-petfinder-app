@@ -73,6 +73,7 @@ const Main = ({user}) => {
           },
           body: JSON.stringify(favorite),
         });
+        console.log("CREATE pets called", "favorite", favorite)
         getPets();
       }
      
@@ -136,7 +137,7 @@ const Main = ({user}) => {
         user = {user}
         favoritePets={favoritePets}
         />} />
-        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} />} />
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} favorite={favorite} addFavorite={addFavorite} createPets={createPets} />} />
       </Routes>
     </main>
   )
