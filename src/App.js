@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { auth } from './firebase.js';
 import { useEffect, useState } from 'react';
 
+
 function App() {
 
   const [ user, setUser ] = useState(null);
@@ -19,6 +20,7 @@ function App() {
     <div className="App">
       <Header user={user} />
       <Main user={user}/>
+      
     </div>
   );
 }

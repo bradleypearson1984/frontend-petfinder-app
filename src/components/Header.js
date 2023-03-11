@@ -1,4 +1,4 @@
-// import login and logout from firebase.js
+
 import { login, logout } from '../firebase.js';
 import {Link} from 'react-router-dom';
 
@@ -7,23 +7,23 @@ import {Link} from 'react-router-dom';
 const Header = ({user}) => {
   return (
     <nav className='nav'>
-        <Link to='/'>
-            <div>Pet Purpose App</div>
+        <Link to='/' className="headerDiv" >
+            <div  >Pet Purpose App</div>
         </Link>
 <ul>
     {user ? (
         <>
-            <li>Welcome, {user.displayName}</li>
+            <li className="welcome">Welcome, {user.displayName}</li>
             <li>
                 <img className='google-profile-pic' src={user.photoURL} alt={user.displayName} />
                </li>
-            <li>
-                <button onClick={logout}>Logout</button>
+            <li className="buttonArea">
+                <button className='logoutButton' onClick={logout}>Logout</button>
             </li>
         </>
     ) : (
         <li>
-            <button onClick={login}>Login</button>
+            <button className='loginButton'onClick={login}>Login</button>
         </li>
     )}
 </ul>

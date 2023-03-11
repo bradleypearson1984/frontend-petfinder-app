@@ -20,15 +20,85 @@ code {
 h1 {
   font-family: 'Lilita One', cursive;
   display: flex;
-  justify-content: center;
-  justify-self: center;
+  // justify-content: center;
+  // justify-self: center;
 }
-div {
-  ul {
-    display: grid;
-    grid-template-columns: 1fr;
+
+///////////
+/// HEADER
+//////////
+.nav { 
+  width: 100%;
+background-color: #55423d;
+display: grid;
+// justify-content: flex-end;
+grid-template-columns: 
+1fr
+2fr
+1fr;  
+  .headerDiv {
+  display: flex;
+  align-items: center;
+    background-color: #55423d;
+    grid-column: 1;
+    font-family: 'Lilita One', cursive;
+    font-size: 25px;
+    padding: 5px;
+  
+    // justify-self: flex-start;
+    // align-self:flex-start;
   }
-  li {
+  ul {
+    display: flex;
+    list-style: none;
+    grid-column: 3;
+    padding: 5px;
+    .welcome {
+  // margin: 5px;
+  max-width: 70px;
+  font-family: 'Lilita One', cursive;
+      
+    
+    }
+    .google-profile-pic {
+      grid-column: 3;
+      border-radius: 50%;
+      margin: 5px;
+      max-width: 50px;
+    }
+    .buttonArea {
+    display: flex;
+    align-items: center;
+    }
+    .logoutButton {
+align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+
+    }
+    .loginButton {
+      align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+
+    }
+  }
+}
+
+
+////////
+/// INDEX
+//////////
+
+
+ul {
+  
+      display: grid;
+    grid-template-columns: 1fr;
+
+  .indexCard {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -44,12 +114,12 @@ div {
     border-radius: 30px;
     border-color: #001858;
   }
-  h2 {
+  .petName {
     font-family: 'Lilita One', cursive;
     display: flex;
     justify-content: center;
   }
-  img {
+  .pic {
     display: flex;
     max-height: 400px;
     align-content: center;
@@ -61,21 +131,111 @@ div {
         border-width: 3px;
         border-color: #001858; 
   }
-  p {
+  .indexDescription {
     display: flex;
     justify-self: center;
     
   }
  }
+/////////
+/// SHOW
+////////
+.showPetDiv {
+  
+  .showPetName {
 
+  }
+  .showPic {
+    display: flex;
+    max-height: 400px;
+    align-content: center;
+    align-self: center;
+        max-width: 350px;
+        min-width: 300px;
+        min-height: 100px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #001858; 
+
+  }
+  .showDescription {
+
+  }
+  .showBreed {
+    display: flex;
+    justify-self: center;
+  }
+  .showAge {
+    display: flex;
+    justify-self: center;
+
+  }
+}
  @media only screen and (min-width: 770px) {
   body {
-      display: grid;
-      grid-template-columns: auto auto auto auto;
+      // display: grid;
+      // grid-template-columns: auto auto auto auto;
     
     }
-    div {
-      h1 {
+    .nav { 
+      width: 100%;
+    background-color: #55423d;
+    display: grid;
+    // justify-content: flex-end;
+    grid-template-columns: 
+    1fr
+    2fr
+    1fr;  
+      .headerDiv {
+       
+        grid-column: 1;
+        font-family: 'Lilita One', cursive;
+      
+        // justify-self: flex-start;
+        // align-self:flex-start;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+        grid-column: 3;
+        padding: 5px;
+        .welcome {
+      // margin: 5px;
+      max-width: 70px;
+      font-family: 'Lilita One', cursive;
+          
+         
+        }
+        .google-profile-pic {
+          grid-column: 3;
+          border-radius: 50%;
+          margin: 5px;
+          max-width: 50px;
+        }
+        .buttonArea {
+        display: flex;
+        align-items: center;
+        }
+        .logoutButton {
+    align-content: center;
+    align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+        }
+        .loginButton {
+          align-content: center;
+border: none;
+border-radius: 6px;
+background-color: #ffc0ad;
+    
+        }
+      }
+    }
+    
+    
+    .displayPetDiv {
+      .available {
         display: flex;
         justify-content: center;
         justify-self: center;
@@ -88,24 +248,50 @@ div {
       padding: 20px; 
       margin: 15px;
     }
-    li {
+    .indexCard {
       padding: 10px;
       margin: 10px;
     }
-    h2 {
+    .petName {
       display: flex;
       justify-self: center;
       justify-content: center;
     }
-    p {
+    .indexDescription {
       display: flex;
       flex-direction: column;
       padding: 10px; 
       width: 400px;
     }
-    img {
+    .pic {
       max-width: 350px;
       justify-self: center;
     }
   }
+}
+
+@media (prefers-color-scheme: dark) {
+body {
+  background-color: #55423d;
+}
+.displayPetDiv {
+
+  .indexCard {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-self: center;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #9656a1;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #271c19;
+  }
+  img {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #ffc0ad;
+  }
+}
 }

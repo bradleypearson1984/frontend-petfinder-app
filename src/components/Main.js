@@ -136,7 +136,7 @@ const Main = ({user}) => {
         user = {user}
         favoritePets={favoritePets}
         />} />
-        <Route path="/pet/:id"  element={<ShowPet animals={animals} favorite={favorite} addFavorite={addFavorite} createPets={createPets} selectedPet={selectedPet} />} />
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} />} />
       </Routes>
     </main>
   )

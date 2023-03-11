@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 const ShowPet = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
+
+
+
   const pet = props.selectedPet;
 
 
