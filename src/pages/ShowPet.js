@@ -12,9 +12,16 @@ const ShowPet = (props) => {
 
 
 
-  const handleChange = () => {
+  const addToFavorites = () => {
     props.createPets(pet);
     console.log("This pet's contact info has been saved to MongoDB:", pet )
+    console.log(pet._id)
+  };
+
+  const deleteFromFavorites = () => {
+    props.deletePets(pet);
+    console.log("This pet's contact info has been deleted from MongoDB:", pet )
+    console.log(pet._id)
   };
 
 return (
@@ -39,13 +46,17 @@ return (
         {pet.contact.address.country}
       </p>
        </div>
-      
-
 
       <p><input
       type="submit" 
-      id="favorites" 
-      onClick={handleChange} /></p>
+      id="favorites"
+      value="Add to favorites" 
+      onClick={addToFavorites} /></p>
+      <p><input
+      type="submit" 
+      id="deletes"
+      value="Delete from favorites" 
+      onClick={deleteFromFavorites} /></p>
       
     </div>
   )

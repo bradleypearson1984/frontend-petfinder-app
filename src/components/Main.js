@@ -57,10 +57,10 @@ const Main = ({user}) => {
     try {
       if(user) {
         const token = await user.getIdToken();
-        await fetch(`${API_URL}/${id}`, {
+        await fetch(API_URL + id, {
           method: 'DELETE',
           headers: {
-            'Content-Type': 'Application/json',
+            'Authorization': `Bearer ${token}`
           }
         });
         getPets();
@@ -110,7 +110,7 @@ const Main = ({user}) => {
         user = {user}
         favoritePets={favoritePets}
         />} />
-        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} createPets={createPets} />} />
+        <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} createPets={createPets} deletePets={deletePets} />} />
       </Routes>
     </main>
   )
