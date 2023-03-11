@@ -131,7 +131,7 @@ ul {
         border-width: 3px;
         border-color: #001858; 
   }
-  .indexDescription {
+  .indexAge {
     display: flex;
     justify-self: center;
     
@@ -257,11 +257,12 @@ background-color: #ffc0ad;
       justify-self: center;
       justify-content: center;
     }
-    .indexDescription {
+    .indexAge {
       display: flex;
       flex-direction: column;
       padding: 10px; 
       width: 400px;
+      // overflow: scroll;
     }
     .pic {
       max-width: 350px;
