@@ -16,9 +16,12 @@ function DisplayPets({ animals, animalType, selectedPet, setSelectedPet }) {
 
             <img className="pic" src={animal.photos.length > 0 ? animal.photos[0].medium : ''} alt={animal.name} />
             </Link>
-            <p className="indexDescription" >{animal.description}</p>
+            <p className="indexAge" >{animal.age}</p>
+            <p className="indexLocation" >{animal.contact.address.city}, {animal.contact.address.state} </p>
+
 
           </li>
+          
           
         ))}
       </ul>
