@@ -13,7 +13,6 @@ const Main = ({user}) => {
   const API_URL = "http://localhost:5001/petFinder";
 
   const getPets = async () => {
-
     try {
       let token;
       if(user) {
@@ -24,9 +23,11 @@ const Main = ({user}) => {
         headers: {
           'Authorization': `Bearer ${token}`
         }
-  
+        
       });
       const data = await response.json();
+      console.log("mongoDB get request", data)
+      
       setFavoritePets(data);
     }
     } catch (error) {

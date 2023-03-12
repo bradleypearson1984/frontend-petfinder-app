@@ -11,6 +11,9 @@ const ShowPet = (props) => {
 
   //alter just the pet.description using 
   const removeSpecChar = (props) => {
+    if (props === null || props === undefined) {
+      return "";
+    }
     let result = props
       .replace(/&quot;/g, "''")
       .replace(/&#039;/g, "'")
@@ -55,7 +58,7 @@ return (
        <div>
       <p>
         {pet.contact.address.address1} 
-        {pet.contact.address.city}, 
+        {pet.contact.address.city},{" "} 
         {pet.contact.address.state}{" "}
         {pet.contact.address.postcode}{" "} 
         {pet.contact.address.country}

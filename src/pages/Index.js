@@ -9,11 +9,14 @@ const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
 function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user, favoritePets, setFavoritePets, deletePets }) {
  
+ 
+
   const loaded = () => {
+    
     return favoritePets.map((pet) => (
-      <div key={pet._id} className="pet">
-        <h1>{pet.name}</h1>
-        <h4>{pet.age}</h4>
+      <div key={pet._id} className="">
+        <h1 className="">{pet.name}</h1>
+        <h4 className=''>{pet.age}</h4>
         <h4>{pet.breed}</h4>
         <h4>{pet.gender}</h4>
       </div>
@@ -45,7 +48,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       })
       .then(response => {
         console.log("animals", response.data.animals)
-        //filter out animals without photos or videos or descriptions
+        //filter out animals without photos
         let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
         
 
@@ -90,7 +93,10 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       <div>
         <button onClick={()=>getPets()}>Get Pets</button>
       </div>
+      <div>
       {favoritePets ? loaded() : loading()}
+
+      </div>
       <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
     </div>
   );
