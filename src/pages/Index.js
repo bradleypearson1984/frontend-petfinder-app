@@ -12,7 +12,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
  
   useEffect(() => {
     getPets();
-  }, [getPets]);
+  }, []);
  
 
   const loaded = () => {
