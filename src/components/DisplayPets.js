@@ -11,7 +11,7 @@ function DisplayPets({ animals, animalType, selectedPet, setSelectedPet }) {
         {animals.map(animal => (
           
           <li className="indexCard" key={animal.id}>
-            <Link to={`/pet/${animal.name}`} onClick = {()=> setSelectedPet(animal)}>
+            <Link to={`/pet/${animal.id}`} onClick = {()=> setSelectedPet(animal)}>
             <h2 className="petName"  >{animal.name}</h2>
 
             <img className="pic" src={animal.photos.length > 0 ? animal.photos[0].medium : ''} alt={animal.name} />
