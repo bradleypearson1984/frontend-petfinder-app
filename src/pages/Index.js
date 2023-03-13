@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
@@ -9,19 +10,36 @@ const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
 function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user, favoritePets, setFavoritePets, deletePets }) {
  
+  useEffect(() => {
+    getPets();
+  }, []);
+ 
+
   const loaded = () => {
+    
     return favoritePets.map((pet) => (
-      <div key={pet._id} className="pet">
-        <h1>{pet.name}</h1>
-        <h4>{pet.age}</h4>
-        <h4>{pet.breed}</h4>
-        <h4>{pet.gender}</h4>
+      <div key={pet._id} className="favoritePetsContainer">
+        <div className="favoritePetRow">
+        
+        <div className='favoritePetCard'>
+        <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
+        <h3 className="">{pet.name}</h3>
+        <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
+        <h4 className=''>{pet.age}</h4>{"    "}
+        <h4>{pet.gender}</h4>{"    "}
+        <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
+        </Link>
+        {/* delete pet from favorites */}
+        <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
+        </div>
+        </div>
+        
       </div>
     )
   )};
 
   const loading = () => {
-    return <h1>No favorite pets to display...</h1>;
+    return <h3>No favorite pets to display...Add some favorites!</h3>;
   };
 
   const handleAnimalTypeChange = (event) => {
@@ -45,7 +63,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       })
       .then(response => {
         console.log("animals", response.data.animals)
-        //filter out animals without photos or videos or descriptions
+        //filter out animals without photos
         let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
         
 
@@ -90,7 +108,11 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       <div>
         <button onClick={()=>getPets()}>Get Pets</button>
       </div>
-      {favoritePets ? loaded() : loading()}
+      <div>
+        {console.log("favoritePets", favoritePets)}
+      {favoritePets? loaded() : loading()}
+    
+      </div>
       <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
     </div>
   );
