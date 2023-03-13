@@ -10,7 +10,7 @@ const Main = ({user}) => {
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
-  const API_URL = "http://localhost:5001/petFinder";
+  const API_URL = "http://localhost:5001/petfinder";
 
   const getPets = async () => {
     try {
@@ -48,7 +48,7 @@ const Main = ({user}) => {
           },
           body: JSON.stringify(pet),
         });
-        getPets();
+        
       }
      
     } catch (error) {
@@ -58,7 +58,7 @@ const Main = ({user}) => {
     try {
       if(user) {
         const token = await user.getIdToken();
-        await fetch(API_URL + id, {
+        await fetch(`${API_URL}/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -109,6 +109,7 @@ const Main = ({user}) => {
         setSelectedPet={setSelectedPet}
         getPets={getPets}
         user = {user}
+        deletePets={deletePets}
         favoritePets={favoritePets}
         />} />
         <Route path="/pet/:id"  element={<ShowPet animals={animals} selectedPet={selectedPet} createPets={createPets} deletePets={deletePets} />} />

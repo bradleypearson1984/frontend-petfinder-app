@@ -93,9 +93,55 @@ background-color: #ffc0ad;
 //////////
 
  
+.favoritePetsContainer {
+  // put into cards with name on top, image in middle, and age, gender, location on bottom
+  display:flexbox;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  background-color: #9656a1;
+  // all items in center
   
+  
+  .favoritePetCard {
+    display: flex;
+    padding: 10px;
+    
+    justify-self: center;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #8bd3dd;
+    padding: 10px; 
+    // fit card to image and text
+    max-width: 400px;
+    max-height: 400px;
+    margin: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #001858;
+    // center text
+    text-align: center;
+    // center image
+    align-items: center;
+  }
 
+}
 
+.favoritePetRow {
+ display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
 
 
 

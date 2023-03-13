@@ -2,8 +2,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const ShowPet = (props) => {
-  const navigate = useNavigate();
   
+  const navigate = useNavigate();
 
 
 
@@ -34,13 +34,22 @@ const ShowPet = (props) => {
     props.createPets(pet);
     console.log("This pet's contact info has been saved to MongoDB:", pet )
     console.log(pet._id)
+    // add new text next to button saying "Added to favorites" and then make a button that navigates to index page
+    document.getElementById("favorite-added").innerHTML = "Added to favorites"; 
+    // disable the button 
+    document.getElementById("favorites").disabled = true;
+    // wait 2 seconds and then remove the text and replace it with a button
+    setTimeout(function(){
+      document.getElementById("favorite-added").innerHTML = "";
+    }, 2000);
+
+
+
+    // create a button that navigates to index page in the favorite-added div
+
   };
 
-  const deleteFromFavorites = () => {
-    props.deletePets(pet);
-    console.log("This pet's contact info has been deleted from MongoDB:", pet )
-    console.log(pet._id)
-  };
+ 
 
 return (
     <div className='showPet'>
@@ -64,17 +73,14 @@ return (
         {pet.contact.address.country}
       </p>
        </div>
-
+       <div id="favorite-added" style={{'color': 'blue'}}></div>
       <p><input
       type="submit" 
       id="favorites"
       value="Add to favorites" 
       onClick={addToFavorites} /></p>
-      <p><input
-      type="submit" 
-      id="deletes"
-      value="Delete from favorites" 
-      onClick={deleteFromFavorites} /></p>
+      {/* add return to index button */}
+      <p><input type="submit" value="Return to index" onClick={() =>navigate('/')} /></p>
       
     </div>
   )
