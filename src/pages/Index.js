@@ -8,7 +8,7 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, user, favoritePets, setFavoritePets, deletePets }) {
+function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, removeSpecChar, favoritePets, deletePets }) {
  
   useEffect(() => {
     getPets();
@@ -63,9 +63,14 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       })
       .then(response => {
         console.log("animals", response.data.animals)
-        //filter out animals without photos
-        let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
-        
+        //filter out animals without photos and use removeSpecChar function to remove special characters
+         let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
+       
+        filteredAnimals.forEach(animal => {
+          animal.name = removeSpecChar(animal.name);
+          animal.description = removeSpecChar(animal.description);  
+        })
+
 
         setAnimals(filteredAnimals.slice(0, 19));
       })
