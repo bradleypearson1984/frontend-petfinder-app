@@ -65,6 +65,10 @@ return (
       <p>{pet.contact.email}</p>
       <p>{pet.contact.phone}</p>
        <div>
+        {/* url link */}
+        <a href={pet.url}>
+          <h3>Link to more information</h3>
+        </a>
       <p>
         {pet.contact.address.address1} 
         {pet.contact.address.city},{" "} 

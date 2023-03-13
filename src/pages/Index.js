@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
@@ -11,7 +12,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
  
   useEffect(() => {
     getPets();
-  }, []);
+  }, [getPets]);
  
 
   const loaded = () => {
@@ -19,16 +20,15 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
     return favoritePets.map((pet) => (
       <div key={pet._id} className="favoritePetsContainer">
         <div className="favoritePetRow">
-
-        <div className='favoritePetCard'>
-        <h3 className="">{pet.name}</h3>
         
-        {/* console log pet object */}
-       {console.log("PET", pet._id)}
+        <div className='favoritePetCard'>
+        <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
+        <h3 className="">{pet.name}</h3>
         <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
         <h4 className=''>{pet.age}</h4>{"    "}
         <h4>{pet.gender}</h4>{"    "}
         <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
+        </Link>
         {/* delete pet from favorites */}
         <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
         </div>
@@ -109,7 +109,8 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
         <button onClick={()=>getPets()}>Get Pets</button>
       </div>
       <div>
-      {favoritePets ? loaded() : loading()}
+        {console.log("favoritePets", favoritePets)}
+      {favoritePets? loaded() : loading()}
     
       </div>
       <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
