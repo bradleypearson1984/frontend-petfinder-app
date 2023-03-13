@@ -28,6 +28,7 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
     setAnimalType(event.target.value);
   };
 
+
   useEffect(() => {
     let token;
     axios.post(AUTH_ENDPOINT, {
