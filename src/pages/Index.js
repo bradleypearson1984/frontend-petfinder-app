@@ -8,10 +8,16 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, setSelectedPet, getPets, removeSpecChar, favoritePets, deletePets }) {
+function Index({ animals, 
+  setAnimals, 
+  animalType, 
+  setAnimalType, selectedPet, 
+  setSelectedPet, getPets, removeSpecChar,
+  favoritePets, deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
  
   useEffect(() => {
     getPets();
+    getAnimalsData();
   }, []);
  
 
@@ -73,11 +79,16 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
 
 
         setAnimals(filteredAnimals.slice(0, 19));
+        saveAnimalsData(filteredAnimals.slice(0, 19));
+
       })
       .catch(error => {
         console.error(error);
       });
   }, [animalType, setAnimals]);
+
+  
+    
 
   return (
     <div>
@@ -116,9 +127,12 @@ function Index({ animals, setAnimals, animalType, setAnimalType, selectedPet, se
       <div>
         {console.log("favoritePets", favoritePets)}
       {favoritePets? loaded() : loading()}
-    
+
       </div>
-      <DisplayPets animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
+      <DisplayPets dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
+      <div>
+        <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
+      </div>
     </div>
   );
 }

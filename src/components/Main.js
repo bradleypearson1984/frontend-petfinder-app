@@ -11,6 +11,7 @@ const Main = ({user}) => {
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
   const API_URL = "http://localhost:5001/petfinder";
+  const [dbAnimals, setDbAnimals] = useState([]);
 
   const removeSpecChar = (props) => {
     if (props === null || props === undefined) {
@@ -30,10 +31,11 @@ const Main = ({user}) => {
     return result;
   };
 
-
+// getPets favorited by the useremail
   const getPets = async () => {
     try {
       let token;
+      console.log("user", user)
       if(user) {
         token = await user.getIdToken();
       
@@ -54,7 +56,54 @@ const Main = ({user}) => {
     }
   }
 
+// saves animals data from petFinder API to mongoDB 
+  const saveAnimalsData = async (data) => {
+    try {
+      console.log("saveAnimalsData FRONTEND called");
+      console.log("USER",user)
+      if (user) {
+        console.log("saveAnimalsData FRONTEND USER called");
+        const token = await user.getIdToken();
+        await fetch(`${API_URL}/save_animal_data`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify(data), // data should be an array of animal objects
+        });
+        console.log("Animals data saved successfully");
+      }
+    } catch (error) {
+      console.error("Error saving animal data: ", error);
+    }
+  };
+  
+  // get animals data from mongoDB
+  const getAnimalsData = async () => {
+    try { 
+      if (user) {
+        const token = await user.getIdToken();
+        const response = await fetch(`${API_URL}/get_animal_data`, {
+          method: 'GET',
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        console.log("Animals data retrieved successfully", data);
+        setDbAnimals(data);
+      }
+    } catch (error) {
+      console.error("Error retrieving animal data: ", error);
+    }
+  };
 
+
+
+
+
+//creates a useremail favorite pets in mongoDB
   const createPets = async (pet) => {
     try {
       if(user) {
@@ -134,6 +183,9 @@ const Main = ({user}) => {
         deletePets={deletePets}
         favoritePets={favoritePets}
         removeSpecChar={removeSpecChar}
+        saveAnimalsData={saveAnimalsData}
+        getAnimalsData={getAnimalsData}
+        dbAnimals={dbAnimals}
         />} />
         <Route path="/pet/:id"
         element={
