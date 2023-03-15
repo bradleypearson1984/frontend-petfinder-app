@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 // import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
@@ -22,19 +22,15 @@ function Index({ animals,
   }, []);
  
   const loaded = () => {
-    // const slideLeft = () => {
-    //   const slider = document.getElementById('slider')
-    //   slider.scrollLeft = slider.scrollLeft -500
-    // }
+//  const ref = useRef(null);
+//  const scroll = (scrollOffset) => {
+//   ref.current.scrollLeft += scrollOffset;
+// };
 
-    // const slideRight = () => {
-    //   const slider = document.getElementById('slider')
-    //   slider.scrollLeft = slider.scrollLeft +500
-    // }
     return (
       <div className="favoritePetsContainer">
         <div id='slider' className='slider'>
-        <MdChevronLeft onClick={slideLeft} className='leftSlide' size={40} />
+        {/* <MdChevronLeft onClick={() => scroll(-20)} className='leftSlide' size={40} /> */}
         
         {favoritePets.map((pet) => (
           <div key={pet._id} className='favoritePetCard'>
@@ -48,7 +44,7 @@ function Index({ animals,
             <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
           </div>
         ))}
-        <MdChevronRight onClick={slideRight} className='rightSlide' size={40} />
+        {/* <MdChevronRight onClick={() => scroll(20)} className='rightSlide' size={40} /> */}
         </div>
       </div>
     );
