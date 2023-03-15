@@ -23,8 +23,6 @@ function Index({
     getAnimalsData();
   }, []);
  
-=======
-
 
   
   const loadFavePets = () => {
