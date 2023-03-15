@@ -1,63 +1,49 @@
 import axios from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
-// import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md'; 
+
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
 const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, 
+function Index({ 
+  animals, 
   setAnimals, 
   animalType, 
   setAnimalType, selectedPet, 
-  setSelectedPet, getPets, removeSpecChar,
-  favoritePets, deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
- 
-  useEffect(() => {
-    getPets();
-    getAnimalsData();
-  }, []);
- 
-  const loaded = () => {
-//  const ref = useRef(null);
-//  const scroll = (scrollOffset) => {
-//   ref.current.scrollLeft += scrollOffset;
-// };
+  setSelectedPet, getPets, removeSpecChar, getAnimalsData,
+  favoritePets, deletePets, saveAnimalsData, dbAnimals }) {
 
-    return (
-      <div className="favoritePetsContainer">
-        <div id='slider' className='slider'>
-        {/* <MdChevronLeft onClick={() => scroll(-20)} className='leftSlide' size={40} /> */}
-        
-        {favoritePets.map((pet) => (
-          <div key={pet._id} className='favoritePetCard'>
-            <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
-              <h3>{pet.name}</h3>
-              <img src={pet.photos.length > 0 ? pet.photos[0].small : ""} alt={pet.name} />
-              <h4>{pet.age}</h4>{"    "}
-              <h4>{pet.gender}</h4>{"    "}
-              <h4>{pet.breeds ? pet.breeds.primary:""}</h4>
-            </Link>
-            <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
-          </div>
-        ))}
-        {/* <MdChevronRight onClick={() => scroll(20)} className='rightSlide' size={40} /> */}
-        </div>
-      </div>
-    );
-  };
   
-  const loading = () => {
-    return <h3>No favorite pets to display...Add some favorites!</h3>;
-  };
+  const loadFavePets = () => {
+    if (favoritePets.length > 0) {
+    return favoritePets.map((pet) => (
+      <div key={pet._id} className="favoritePetsContainer">
+        <div className="favoritePetRow">
+        
+        <div className='favoritePetCard'>
+        <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
+        <h3 className="">{pet.name}</h3>
+        <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
+        <h4 className=''>{pet.age}</h4>{"    "}
+        <h4>{pet.gender}</h4>{"    "}
+        <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
+        </Link>
+        <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
+        </div>
+        </div>
+        
+      </div>
+    )
+  )} else {
+    return (
+    <div className='favoritePetsContainer'><h3>No favorite pets to display...Add some favorites!</h3></div>)}}
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
   };
-
 
   useEffect(() => {
     let token;
@@ -133,7 +119,7 @@ function Index({ animals,
       </div>
       <div>
         {console.log("favoritePets", favoritePets)}
-      {favoritePets? loaded() : loading()}
+      {loadFavePets()}
 
       </div>
       <DisplayPets dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
