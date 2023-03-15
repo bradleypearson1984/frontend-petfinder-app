@@ -8,15 +8,16 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, 
+function Index({ 
+  animals, 
   setAnimals, 
   animalType, 
   setAnimalType, selectedPet, 
-  setSelectedPet, getPets, removeSpecChar,
-  favoritePets, deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
+  setSelectedPet, getPets, removeSpecChar, getAnimalsData,
+  favoritePets, deletePets, saveAnimalsData, dbAnimals }) {
 
+  
   const loadFavePets = () => {
-    getPets()
     if (favoritePets.length > 0) {
     return favoritePets.map((pet) => (
       <div key={pet._id} className="favoritePetsContainer">
