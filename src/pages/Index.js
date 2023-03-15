@@ -14,15 +14,10 @@ function Index({ animals,
   setAnimalType, selectedPet, 
   setSelectedPet, getPets, removeSpecChar,
   favoritePets, deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
- 
-  useEffect(() => {
-    getPets();
-    getAnimalsData();
-  }, []);
- 
 
-  const loaded = () => {
-    
+  const loadFavePets = () => {
+    getPets()
+    if (favoritePets.length > 0) {
     return favoritePets.map((pet) => (
       <div key={pet._id} className="favoritePetsContainer">
         <div className="favoritePetRow">
@@ -35,18 +30,15 @@ function Index({ animals,
         <h4>{pet.gender}</h4>{"    "}
         <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
         </Link>
-        {/* delete pet from favorites */}
         <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
         </div>
         </div>
         
       </div>
     )
-  )};
-
-  const loading = () => {
-    return <h3>No favorite pets to display...Add some favorites!</h3>;
-  };
+  )} else {
+    return (
+    <div className='favoritePetsContainer'><h3>No favorite pets to display...Add some favorites!</h3></div>)}}
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -126,7 +118,7 @@ function Index({ animals,
       </div>
       <div>
         {console.log("favoritePets", favoritePets)}
-      {favoritePets? loaded() : loading()}
+      {loadFavePets()}
 
       </div>
       <DisplayPets dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />

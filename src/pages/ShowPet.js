@@ -1,41 +1,19 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ShowPet = (props) => {
   
   const navigate = useNavigate();
-
-
-
   const pet = props.selectedPet;
-
-  //alter just the pet.description using 
- 
-
-
 
   const addToFavorites = () => {
     props.createPets(pet);
-    console.log("This pet's contact info has been saved to MongoDB:", pet )
-    console.log(pet._id)
-    // add new text next to button saying "Added to favorites" and then make a button that navigates to index page
     document.getElementById("favorite-added").innerHTML = "Added to favorites"; 
-    // disable the button 
     document.getElementById("favorites").disabled = true;
-    // wait 2 seconds and then remove the text and replace it with a button
     setTimeout(function(){
       document.getElementById("favorite-added").innerHTML = "";
-    }, 2000);
+    }, 2000) };
 
-
-
-    // create a button that navigates to index page in the favorite-added div
-
-  };
-
- 
-
-return (
+ return (
     <div className='showPet'>
       <h1 className='showPetName'>{pet.name}</h1>
 
@@ -49,7 +27,6 @@ return (
       <p>{pet.contact.email}</p>
       <p>{pet.contact.phone}</p>
        <div>
-        {/* url link */}
         <a href={pet.url}>
           <h3>Link to more information</h3>
         </a>
