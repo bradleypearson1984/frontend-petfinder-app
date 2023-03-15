@@ -8,7 +8,8 @@ const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
-function Index({ animals, 
+function Index({ 
+  animals, 
   setAnimals, 
   animalType, 
   setAnimalType, selectedPet, 
@@ -22,9 +23,12 @@ function Index({ animals,
     getAnimalsData();
   }, []);
  
+=======
 
-  const loaded = () => {
-    
+
+  
+  const loadFavePets = () => {
+    if (favoritePets.length > 0) {
     return favoritePets.map((pet) => (
       <div key={pet._id} className="favoritePetsContainer">
         <div className="favoritePetRow">
@@ -37,18 +41,15 @@ function Index({ animals,
         <h4>{pet.gender}</h4>{"    "}
         <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
         </Link>
-        {/* delete pet from favorites */}
         <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
         </div>
         </div>
         
       </div>
     )
-  )};
-
-  const loading = () => {
-    return <h3>No favorite pets to display...Add some favorites!</h3>;
-  };
+  )} else {
+    return (
+    <div className='favoritePetsContainer'><h3>No favorite pets to display...Add some favorites!</h3></div>)}}
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -130,7 +131,7 @@ function Index({ animals,
       </div>
       <div>
         {console.log("favoritePets", favoritePets)}
-      {favoritePets? loaded() : loading()}
+      {loadFavePets()}
 
       </div>
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />

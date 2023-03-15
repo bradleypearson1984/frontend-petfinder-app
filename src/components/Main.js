@@ -149,23 +149,6 @@ const Main = ({user}) => {
   // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
   // give example: https://reactjs.org/docs/hooks-reference.html#useref
 
-  useEffect(() => {
-    getPetsRef.current = getPets;
-    // set the mutable ref to the object that needs to persist across renders
-  },[])
-
-
-
-  useEffect(() => {
-    if(user) {
-      getPetsRef.current();
-    } else {
-      setFavoritePets(null)
-    }
-
-    
-  }, [user]);
-
 
 
 
