@@ -58,10 +58,11 @@ const Main = ({user}) => {
 
 // saves animals data from petFinder API to mongoDB 
   const saveAnimalsData = async (data) => {
-    try {
-      console.log("saveAnimalsData FRONTEND called");
+    if(user) {
+ try {
+   
       console.log("USER",user)
-      if (user) {
+      
         console.log("saveAnimalsData FRONTEND USER called");
         const token = await user.getIdToken();
         await fetch(`${API_URL}/save_animal_data`, {
@@ -73,10 +74,11 @@ const Main = ({user}) => {
           body: JSON.stringify(data), // data should be an array of animal objects
         });
         console.log("Animals data saved successfully");
-      }
+      
     } catch (error) {
       console.error("Error saving animal data: ", error);
     }
+  } 
   };
   
   // get animals data from mongoDB
@@ -133,6 +135,7 @@ const Main = ({user}) => {
           }
         });
         getPets();
+        
       }
     } catch (error) {
       console.log("error", error)
@@ -145,6 +148,8 @@ const Main = ({user}) => {
   const getPetsRef = useRef(); // {current: null}
   // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
   // give example: https://reactjs.org/docs/hooks-reference.html#useref
+
+
 
 
 
