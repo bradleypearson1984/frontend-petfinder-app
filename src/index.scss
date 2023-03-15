@@ -95,20 +95,38 @@ background-color: #ffc0ad;
  
 .favoritePetsContainer {
   // put into cards with name on top, image in middle, and age, gender, location on bottom
-  display:flexbox;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  grid-gap: 10px;
+  display: flex;
+//  position: relative;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  // grid-template-columns: auto;
+  // grid-template-rows: auto;
+  // grid-gap: 10px;
   justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
+  // justify-items: center;
+  // align-items: center;
+  // align-content: center;
   background-color: #9656a1;
   // all items in center
-  
+  .slider {
+    display: flex;
+  }
+  .leftSlide:hover {
+   cursor: pointer;
+   
+  }
+  .rightSlide {
+    align-items: center;
+
+  }
   
   .favoritePetCard {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
     
     justify-self: center;
@@ -117,8 +135,10 @@ background-color: #ffc0ad;
     background-color: #8bd3dd;
     padding: 10px; 
     // fit card to image and text
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 300px;
+    max-height: 500px;
+    min-height: 400px;
+    min-width: 300px;
     margin: 10px;
     border-width: 3px;
     border-style: solid;
@@ -132,16 +152,6 @@ background-color: #ffc0ad;
 
 }
 
-.favoritePetRow {
- display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-}
 
 
 
@@ -157,7 +167,7 @@ ul {
     justify-self: center;
     justify-content: center;
     list-style-type: none;
-    background-color: #8bd3dd;
+    // background-color: #8bd3dd;
     padding: 10px; 
     width: 400px;
     margin: 10px;

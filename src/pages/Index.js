@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
-
+// import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md'; 
 const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
 const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
@@ -20,30 +21,39 @@ function Index({ animals,
     getAnimalsData();
   }, []);
  
-
   const loaded = () => {
-    
-    return favoritePets.map((pet) => (
-      <div key={pet._id} className="favoritePetsContainer">
-        <div className="favoritePetRow">
-        
-        <div className='favoritePetCard'>
-        <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
-        <h3 className="">{pet.name}</h3>
-        <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
-        <h4 className=''>{pet.age}</h4>{"    "}
-        <h4>{pet.gender}</h4>{"    "}
-        <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
-        </Link>
-        {/* delete pet from favorites */}
-        <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
-        </div>
-        </div>
-        
-      </div>
-    )
-  )};
+    // const slideLeft = () => {
+    //   const slider = document.getElementById('slider')
+    //   slider.scrollLeft = slider.scrollLeft -500
+    // }
 
+    // const slideRight = () => {
+    //   const slider = document.getElementById('slider')
+    //   slider.scrollLeft = slider.scrollLeft +500
+    // }
+    return (
+      <div className="favoritePetsContainer">
+        <div id='slider' className='slider'>
+        <MdChevronLeft onClick={slideLeft} className='leftSlide' size={40} />
+        
+        {favoritePets.map((pet) => (
+          <div key={pet._id} className='favoritePetCard'>
+            <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
+              <h3>{pet.name}</h3>
+              <img src={pet.photos.length > 0 ? pet.photos[0].small : ""} alt={pet.name} />
+              <h4>{pet.age}</h4>{"    "}
+              <h4>{pet.gender}</h4>{"    "}
+              <h4>{pet.breeds ? pet.breeds.primary:""}</h4>
+            </Link>
+            <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
+          </div>
+        ))}
+        <MdChevronRight onClick={slideRight} className='rightSlide' size={40} />
+        </div>
+      </div>
+    );
+  };
+  
   const loading = () => {
     return <h3>No favorite pets to display...Add some favorites!</h3>;
   };
