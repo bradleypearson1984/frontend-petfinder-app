@@ -15,6 +15,8 @@ function Index({ animals,
   setSelectedPet, getPets, removeSpecChar,
   favoritePets, deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
  
+
+
   useEffect(() => {
     getPets();
     getAnimalsData();
@@ -79,13 +81,15 @@ function Index({ animals,
 
 
         setAnimals(filteredAnimals.slice(0, 19));
+       
+        // returns a promise, so we can chain another .then() to it
         saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals]);
+  }, [animalType]);
 
   
     
@@ -129,7 +133,7 @@ function Index({ animals,
       {favoritePets? loaded() : loading()}
 
       </div>
-      <DisplayPets dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
+      <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
       </div>
