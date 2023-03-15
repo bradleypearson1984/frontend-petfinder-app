@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
-const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
-const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
+const API_KEY = 'tB1l01BvGPHTa6YSxsWtfHolwby1bBFOWAYWdPwaxU87cQbDfY';
+const API_SECRET = 'USvAFQK5ezIPq9ip2Q90RMMWbm4qJERBhRovs4Qa';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
