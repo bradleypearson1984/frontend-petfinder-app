@@ -10,7 +10,7 @@ const Favorites = (props) => {
           <div className="favoritePetRow">
           
           <div className='favoritePetCard'>
-          <Link to={`/pet/${pet.id}`} onClick = {()=>props.setSelectedPet()}>
+          <Link to={`/pet/${pet.id}`} onClick = {()=>props.setSelectedPet(pet)}>
           <h3 className="">{pet.name}</h3>
           <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
           <h4 className=''>{pet.age}</h4>{"    "}
