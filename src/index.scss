@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -92,7 +93,42 @@ background-color: #ffc0ad;
 /// INDEX
 //////////
 
- 
+ .animals-button {
+  padding: 1rem;
+
+ }
+
+ .animals-button label {
+  display: inline-block;
+    background-color: #cbdaf6;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #a4faff;
+    border-radius: 4px;
+ }
+ .animals-button input[type="radio"]:checked + label {
+  background-color:rgb(255, 255, 255);
+  border-color: rgb(176, 235, 243);
+ }
+
+ .animals-button input[type="radio"]:focus + label {
+  border: 2px dashed #fa5aaf;
+}
+
+.animals-button label:hover {
+  background-color: #ffc7c7;
+}
+ .dog-button, .cat-button, .rabbit-button {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+ }
+
+ label {
+  margin: 3px;
+ }
+
 .favoritePetsContainer {
   // put into cards with name on top, image in middle, and age, gender, location on bottom
   display:flexbox;
