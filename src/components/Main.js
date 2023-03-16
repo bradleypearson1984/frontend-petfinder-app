@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import {Routes, Route} from "react-router-dom";
 import Index from "../pages/Index";
 import ShowPet from "../pages/ShowPet";
+import Favorites from "../pages/Favorites"
 
 
 
@@ -181,6 +182,10 @@ const Main = ({user}) => {
         selectedPet={selectedPet} 
         createPets={createPets} 
         deletePets={deletePets} 
+        />} />
+        <Route path="/favorites"
+        element={
+        <Favorites favoritePets={favoritePets}
         />} />
       </Routes>
     </main>
