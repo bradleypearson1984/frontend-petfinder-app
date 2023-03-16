@@ -132,6 +132,7 @@ background-color: #ffc0ad;
 
 }
 
+
 .favoritePetRow {
  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -185,12 +186,17 @@ ul {
         min-height: 100px;
         border-style: solid;
         border-width: 3px;
-        border-color: #001858; 
+        border-color: #001858;
+        margin:auto; 
+       
   }
   .indexAge {
-    display: flex;
-    justify-self: center;
-    
+   text-align: center;
+  }
+
+  .indexLocation {
+    text-align: center;
+
   }
  }
 /////////
