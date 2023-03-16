@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import {Routes, Route} from "react-router-dom";
 import Index from "../pages/Index";
 import ShowPet from "../pages/ShowPet";
@@ -146,7 +146,7 @@ const Main = ({user}) => {
 
 // invoke useRef hook to create a ref
 // create the mutable ref object and assign it to the current property
-  const getPetsRef = useRef(); // {current: null}
+  // const getPetsRef = useRef(); // {current: null}
   // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
   // give example: https://reactjs.org/docs/hooks-reference.html#useref
 
