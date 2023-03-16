@@ -13,33 +13,14 @@ function Index({
   setAnimals, 
   animalType, 
   setAnimalType, selectedPet, 
-  setSelectedPet, getPets, removeSpecChar, getAnimalsData,
-  favoritePets, deletePets, saveAnimalsData, dbAnimals }) {
+  setSelectedPet, getPets, removeSpecChar,
+  deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
+ 
 
-  
-  const loadFavePets = () => {
-    if (favoritePets.length > 0) {
-    return favoritePets.map((pet) => (
-      <div key={pet._id} className="favoritePetsContainer">
-        <div className="favoritePetRow">
-        
-        <div className='favoritePetCard'>
-        <Link to={`/pet/${pet.id}`} onClick = {()=> setSelectedPet(pet)}>
-        <h3 className="">{pet.name}</h3>
-        <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
-        <h4 className=''>{pet.age}</h4>{"    "}
-        <h4>{pet.gender}</h4>{"    "}
-        <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
-        </Link>
-        <button className="deleteButton" onClick={() => deletePets(pet._id)}>Delete</button>
-        </div>
-        </div>
-        
-      </div>
-    )
-  )} else {
-    return (
-    <div className='favoritePetsContainer'><h3>No favorite pets to display...Add some favorites!</h3></div>)}}
+
+  useEffect(() => {
+    getAnimalsData();
+  }, []);
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -114,18 +95,14 @@ function Index({
         />
         <label htmlFor="rabbit">Rabbit</label>
       </div>
-      <div>
-        <button onClick={()=>getPets()}>Get Pets</button>
-      </div>
-      <div>
-        {console.log("favoritePets", favoritePets)}
-      {loadFavePets()}
-
-      </div>
-      <DisplayPets dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
+      <Link to='/favorites' className="headerDiv" onClick={()=>getPets()}>
+            <div>View Favorites</div>
+        </Link>
+      <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
       </div>
+
     </div>
   );
 }
