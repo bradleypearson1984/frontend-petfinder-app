@@ -94,7 +94,8 @@ background-color: #ffc0ad;
 //////////
 
  .animals-button {
-  padding: 1rem;
+  padding-top: 5rem;
+  margin-left: 6rem;
 
  }
 
@@ -128,6 +129,23 @@ background-color: #ffc0ad;
  label {
   margin: 3px;
  }
+
+ .favorites-link {
+    display: inline-block;
+    background-color: #e34747;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: 2px solid #06c1fa;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 3px;
+ }
+
+ :hover.favorites-link {
+  background-color: #fa0000;
+ }
+
 
 .favoritePetsContainer {
   // put into cards with name on top, image in middle, and age, gender, location on bottom

@@ -93,10 +93,13 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="rabbit">Rabbit</label>
-      </div>
-      <Link to='/favorites' onClick={()=>getPets()}>
-            <div className="headerDiv">View Favorites</div>
+        
+       <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
+            <div className="favorites">View Favorites</div>
         </Link>
+        
+      </div>
+     
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
