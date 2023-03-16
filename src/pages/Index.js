@@ -65,8 +65,8 @@ function Index({
 
   return (
     <div>
-      <div>
-        <input
+      <div className='animals-button'>
+        <input className='dog-button'
           type="radio"
           id="dog"
           name="animal-type"
@@ -75,7 +75,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="dog">Dog</label>
-        <input
+        <input className='cat-button'
           type="radio"
           id="cat"
           name="animal-type"
@@ -84,7 +84,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="cat">Cat</label>
-        <input
+        <input className='rabbit-button'
           type="radio"
           id="rabbit"
           name="animal-type"
