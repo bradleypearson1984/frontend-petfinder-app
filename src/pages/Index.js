@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
@@ -18,9 +18,6 @@ function Index({
  
 
 
-  useEffect(() => {
-    getAnimalsData();
-  }, []);
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -46,16 +43,16 @@ function Index({
         //filter out animals without photos and use removeSpecChar function to remove special characters
          let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
        
-        filteredAnimals.forEach(animal => {
-          animal.name = removeSpecChar(animal.name);
-          animal.description = removeSpecChar(animal.description);  
-        })
+        // filteredAnimals.forEach(animal => {
+        //   animal.name = removeSpecChar(animal.name);
+        //   animal.description = removeSpecChar(animal.description);  
+        // })
 
 
         setAnimals(filteredAnimals.slice(0, 19));
        
         // returns a promise, so we can chain another .then() to it
-        saveAnimalsData(filteredAnimals.slice(0, 19));
+        // saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
