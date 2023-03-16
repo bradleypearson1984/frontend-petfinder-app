@@ -65,8 +65,8 @@ function Index({
 
   return (
     <div>
-      <div>
-        <input
+      <div className='animals-button'>
+        <input className='dog-button'
           type="radio"
           id="dog"
           name="animal-type"
@@ -75,7 +75,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="dog">Dog</label>
-        <input
+        <input className='cat-button'
           type="radio"
           id="cat"
           name="animal-type"
@@ -84,7 +84,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="cat">Cat</label>
-        <input
+        <input className='rabbit-button'
           type="radio"
           id="rabbit"
           name="animal-type"
@@ -93,10 +93,13 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="rabbit">Rabbit</label>
-      </div>
-      <Link to='/favorites' onClick={()=>getPets()}>
-            <div className="headerDiv">View Favorites</div>
+        
+       <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
+            <div className="favorites">View Favorites</div>
         </Link>
+        
+      </div>
+     
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
