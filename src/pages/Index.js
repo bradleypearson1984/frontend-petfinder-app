@@ -97,8 +97,8 @@ function Index({
         />
         <label htmlFor="rabbit">Rabbit</label>
       </div>
-      <Link to='/favorites' className="headerDiv" onClick={()=>getPets()}>
-            <div>View Favorites</div>
+      <Link to='/favorites' onClick={()=>getPets()}>
+            <div className="headerDiv">View Favorites</div>
         </Link>
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>

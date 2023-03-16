@@ -186,6 +186,7 @@ const Main = ({user}) => {
         <Route path="/favorites"
         element={
         <Favorites favoritePets={favoritePets}
+
         />} />
       </Routes>
     </main>
