@@ -10,13 +10,15 @@ const Header = ({user}) => {
         <Link to='/' className="headerDiv" >
             <div  >Pet Purpose App</div>
         </Link>
-<ul>
+<ul className='user-header'>
     {user ? (
         <>
-            <li className="welcome">Welcome, {user.displayName}</li>
-            <li>
-                <img className='google-profile-pic' src={user.photoURL} alt={user.displayName} />
-               </li>
+            <li className="welcome">Welcome, {user.displayName}
+            <li className='pic-google-li'>
+               <img className='google-profile-pic' src={user.photoURL} alt={user.displayName} /> 
+            </li>
+            
+           </li>
             <li className="buttonArea">
                 <button className='logoutButton' onClick={logout}>Logout</button>
             </li>
