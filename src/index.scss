@@ -306,7 +306,9 @@ ul {
   }
  }
 
-
+ .displayPetDiv {
+ 
+ }
  
  .available {
     display: flex;
@@ -319,7 +321,9 @@ ul {
 ////////
 .showPetDiv {
   
+  .showPetName {
 
+  }
   .showPic {
     display: flex;
     max-height: 400px;
@@ -333,7 +337,9 @@ ul {
         border-color: #001858; 
 
   }
+  .showDescription {
 
+  }
   .showBreed {
     display: flex;
     justify-self: center;
@@ -424,7 +430,9 @@ background-color: #ffc0ad;
     .favoritePetsContainer {
       grid-template-columns: auto auto auto auto ;
 
+  .favoritePetCard {
 
+  }
       
       
       
@@ -505,7 +513,10 @@ background-color: #ffc0ad;
       justify-self: center;
       justify-content: center;
     }
-
+    .indexAge {
+      
+      // overflow: scroll;
+    }
     .pic {
       max-width: 350px;
       justify-self: center;
