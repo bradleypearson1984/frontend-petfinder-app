@@ -1,11 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
+
 const Favorites = (props) => {
-    const navigate = useNavigate();
     const pets = props.favoritePets;
-    console.log("Favorites called", pets)
+    console.log(props)
     return pets.map((pet) => (
       <div className='favoriteArea'>
 
@@ -19,6 +18,7 @@ const Favorites = (props) => {
           <h4 className="favoriteAge">{pet.age}</h4>{"    "}
           <h4 className="favoriteGender"> {pet.gender}</h4>{"    "}
           <h4 className="favoriteBreeds" >{pet.breeds ? pet.breeds.primary:""}</h4> 
+
           </Link>
           <button className="deleteButton" onClick={() => props.deletePets(pet._id)}>Delete</button>
           </div>

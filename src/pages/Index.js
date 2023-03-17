@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
@@ -18,15 +18,12 @@ function Index({
  
 
 
-  useEffect(() => {
-    getAnimalsData();
-  }, []);
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
   };
 
-  useEffect(() => {
+  const handleGetAnimals = useCallback(() => {
     let token;
     axios.post(AUTH_ENDPOINT, {
       grant_type: 'client_credentials',
@@ -46,30 +43,34 @@ function Index({
         //filter out animals without photos and use removeSpecChar function to remove special characters
          let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
        
-        filteredAnimals.forEach(animal => {
-          animal.name = removeSpecChar(animal.name);
-          animal.description = removeSpecChar(animal.description);  
-        })
+        // filteredAnimals.forEach(animal => {
+        //   animal.name = removeSpecChar(animal.name);
+        //   animal.description = removeSpecChar(animal.description);  
+        // })
 
 
         setAnimals(filteredAnimals.slice(0, 19));
        
-        // returns a promise, so we can chain another .then() to it
-        saveAnimalsData(filteredAnimals.slice(0, 19));
+        
+        // saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType]);
+  }, [animalType, setAnimals]);
+
+  useEffect(() => {
+    handleGetAnimals();
+  }, [handleGetAnimals]);
 
   
     
 
   return (
     <div>
-      <div>
-        <input
+      <div className='animals-button'>
+        <input className='dog-button'
           type="radio"
           id="dog"
           name="animal-type"
@@ -78,7 +79,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="dog">Dog</label>
-        <input
+        <input className='cat-button'
           type="radio"
           id="cat"
           name="animal-type"
@@ -87,7 +88,7 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="cat">Cat</label>
-        <input
+        <input className='rabbit-button'
           type="radio"
           id="rabbit"
           name="animal-type"
@@ -96,10 +97,13 @@ function Index({
           onChange={handleAnimalTypeChange}
         />
         <label htmlFor="rabbit">Rabbit</label>
-      </div>
-      <Link to='/favorites' className="headerDiv" onClick={()=>getPets()}>
-            <div>View Favorites</div>
+        
+       <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
+            <div className="favorites">View Favorites</div>
         </Link>
+        
+      </div>
+     
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       <div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
