@@ -5,8 +5,8 @@ function DisplayPets({dbAnimals, animals, animalType, selectedPet, setSelectedPe
 
   return (
     <>
+    <h1 className="available">Available {animalType}s</h1>
     <div className="displayPetDiv">
-      <h1 className="available">Available {animalType}s</h1>
       <ul>
         {animals.map(animal => (
           <li className="indexCard" key={animal._id}>
