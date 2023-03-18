@@ -202,7 +202,7 @@ background-color: #ffc0ad;
 
 ul {
   
-      display: grid;
+    display: grid;
     grid-template-columns: 1fr;
 
   .indexCard {
@@ -235,13 +235,13 @@ ul {
     max-height: 400px;
     align-content: center;
     align-self: center;
-        max-width: 350px;
-        min-width: 300px;
-        min-height: 100px;
-        border-style: solid;
-        border-width: 3px;
-        border-color: #001858;
-        margin:auto; 
+    height: 350px;
+    width: 300px;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #001858;
+    margin:auto; 
        
   }
   .indexAge {
@@ -253,6 +253,20 @@ ul {
 
   }
  }
+
+ .display-pet-div {
+  width: 80%;
+  margin: 0 auto;
+ }
+ 
+ .available {
+    text-align: center;
+    color:#001858;
+ }
+ .animal-name-link {
+  text-decoration: none;
+}
+
 /////////
 /// SHOW
 ////////
@@ -360,6 +374,10 @@ background-color: #ffc0ad;
       padding: 10px;
       margin: 10px;
     }
+
+  .animal-name-link {
+    text-decoration: none;
+  }
     .petName {
       display: flex;
       justify-self: center;
@@ -372,10 +390,7 @@ background-color: #ffc0ad;
       width: 400px;
       // overflow: scroll;
     }
-    .pic {
-      max-width: 350px;
-      justify-self: center;
-    }
+   
   }
 }
 
