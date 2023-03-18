@@ -52,13 +52,13 @@ function Index({
         setAnimals(filteredAnimals.slice(0, 19));
        
         
-        saveAnimalsData(filteredAnimals.slice(0, 19));
+        // saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals, saveAnimalsData]);
+  }, [animalType, setAnimals]);
 
   useEffect(() => {
     handleGetAnimals();
