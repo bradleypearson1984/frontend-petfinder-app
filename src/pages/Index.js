@@ -3,8 +3,8 @@ import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
-const API_KEY = '1gxzT4jdmq165biOL7wNCuaBLtaS7NMyZNIWgcTXLTodwgTQQ8';
-const API_SECRET = 'K5Q3ZyDtiOrnn0cBysnVbHjFmatf42GWFupoAhQv';
+const API_KEY = 'baDs8oID8IQUpYQra2skjNjP61EYh11AjnR8WgbuW0rl1bS611';
+const API_SECRET = 'KvPewNgFx2D8PXJMnI2ppPGanvqPNS2oP4trSHtj';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
 const API_ENDPOINT = 'https://api.petfinder.com/v2';
 
@@ -43,22 +43,22 @@ function Index({
         //filter out animals without photos and use removeSpecChar function to remove special characters
          let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
        
-        filteredAnimals.forEach(animal => {
-          animal.name = removeSpecChar(animal.name);
-          animal.description = removeSpecChar(animal.description);  
-        })
+        // filteredAnimals.forEach(animal => {
+        //   animal.name = removeSpecChar(animal.name);
+        //   animal.description = removeSpecChar(animal.description);  
+        // })
 
 
         setAnimals(filteredAnimals.slice(0, 19));
        
         
-        saveAnimalsData(filteredAnimals.slice(0, 19));
+        // saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals, saveAnimalsData, removeSpecChar]);
+  }, [animalType, setAnimals]);
 
   useEffect(() => {
     handleGetAnimals();
