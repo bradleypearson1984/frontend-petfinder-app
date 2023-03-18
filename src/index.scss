@@ -330,7 +330,7 @@ ul {
     text-align: center;
     color: #001858;
   .showPetName {
-    // grid-template-areas: 1;
+
     justify-content: center;
   justify-self: center;
   color: #140d0b;
@@ -486,11 +486,12 @@ background-color: #ffc0ad;
 @media only screen and (min-width: 800px) {
 .showContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: 1fr 1fr 1fr;
 .showPet {
   // display: grid;
-  grid-column: 1 span 3;
+  min-width: 400px;
+  max-width: none;
+  grid-column: 1 span 4;
   // flex-direction: column;
   
 }
