@@ -7,7 +7,7 @@ const Favorites = (props) => {
     console.log(props)
     return pets.map((pet) => (
         <div key={pet._id} className="favoritePetsContainer">
-          <div className="favoritePetRow">
+          {/* <div className="favoritePetRow"> */}
           
           <div className='favoritePetCard'>
           <Link className='faveLink' to={`/pet/${pet.id}`} onClick = {()=>props.setSelectedPet(pet)}>
@@ -21,7 +21,7 @@ const Favorites = (props) => {
           </div>
           </div>
           
-        </div>
+        // </div>
       ))
     }
 
