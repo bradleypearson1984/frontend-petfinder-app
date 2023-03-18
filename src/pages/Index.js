@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
@@ -23,7 +23,7 @@ function Index({
     setAnimalType(event.target.value);
   };
 
-  useEffect(() => {
+  const handleGetAnimals = useCallback(() => {
     let token;
     axios.post(AUTH_ENDPOINT, {
       grant_type: 'client_credentials',
@@ -51,14 +51,18 @@ function Index({
 
         setAnimals(filteredAnimals.slice(0, 19));
        
-        // returns a promise, so we can chain another .then() to it
+        
         // saveAnimalsData(filteredAnimals.slice(0, 19));
 
       })
       .catch(error => {
         console.error(error);
       });
-  }, [animalType]);
+  }, [animalType, setAnimals]);
+
+  useEffect(() => {
+    handleGetAnimals();
+  }, [handleGetAnimals]);
 
   
     
