@@ -43,10 +43,10 @@ function Index({
         //filter out animals without photos and use removeSpecChar function to remove special characters
          let filteredAnimals = response.data.animals.filter(animal => animal.photos.length > 0 );
        
-        filteredAnimals.forEach(animal => {
-          animal.name = removeSpecChar(animal.name);
-          animal.description = removeSpecChar(animal.description);  
-        })
+        // filteredAnimals.forEach(animal => {
+        //   animal.name = removeSpecChar(animal.name);
+        //   animal.description = removeSpecChar(animal.description);  
+        // })
 
 
         setAnimals(filteredAnimals.slice(0, 19));
@@ -58,7 +58,7 @@ function Index({
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals, saveAnimalsData, removeSpecChar]);
+  }, [animalType, setAnimals, saveAnimalsData]);
 
   useEffect(() => {
     handleGetAnimals();
