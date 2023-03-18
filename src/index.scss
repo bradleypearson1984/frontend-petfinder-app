@@ -29,64 +29,69 @@ h1 {
 /// HEADER
 //////////
 .nav { 
-  width: 100%;
-background-color: #55423d;
-display: grid;
+ 
+  background-color: #55423d;
+  display: grid;
 // justify-content: flex-end;
-grid-template-columns: 
-1fr
-2fr
-1fr;  
+}
   .headerDiv {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
     background-color: #55423d;
-    grid-column: 1;
     font-family: 'Lilita One', cursive;
     font-size: 25px;
-    padding: 5px;
-  
+    margin-left: 3rem;
+    color: white;
     // justify-self: flex-start;
     // align-self:flex-start;
   }
+
+  
+
   ul {
     display: flex;
     list-style: none;
     grid-column: 3;
     padding: 5px;
-    .welcome {
-  // margin: 5px;
-  max-width: 70px;
-  font-family: 'Lilita One', cursive;
-      
-    
-    }
-    .google-profile-pic {
-      grid-column: 3;
+  }
+
+  .welcome {
+    display: flex;
+    padding-top: 1rem;
+    margin-right: 4rem;
+    color: white;
+    text-align: center;
+  }
+
+  .google-profile-pic {
       border-radius: 50%;
-      margin: 5px;
       max-width: 50px;
     }
-    .buttonArea {
-    display: flex;
-    align-items: center;
+  .pic-google-li {
+    margin-left: 2rem;
+  }
+    
+
+ .buttonArea {
+    margin: 2rem;
     }
-    .logoutButton {
+
+  .logoutButton {
+    margin-left: 1rem;
 align-content: center;
 border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
 
-    }
-    .loginButton {
+}
+
+  .loginButton {
       align-content: center;
-border: none;
+      border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
 
     }
-  }
-}
 
 
 ////////////////
@@ -96,12 +101,13 @@ background-color: #ffc0ad;
  .animals-button {
   padding-top: 5rem;
   margin-left: 6rem;
+  color:#001858
 
  }
 
  .animals-button label {
   display: inline-block;
-    background-color: #cbdaf6;
+    background-color: #f582ae;
     padding: 10px 20px;
     font-family: sans-serif, Arial;
     font-size: 16px;
@@ -239,8 +245,9 @@ background-color: #ffc0ad;
 
 ul {
   
-      display: grid;
+    display: grid;
     grid-template-columns: 1fr;
+    font-family: 'Lilita One', cursive;
 
   .indexCard {
     display: flex;
@@ -249,17 +256,14 @@ ul {
     justify-self: center;
     justify-content: center;
     list-style-type: none;
-    background-color: #8bd3dd;
+    background-color: #f3d2c1;
     padding: 10px; 
     width: 400px;
     margin: 10px;
     border-width: 5px;
     border-style: solid;
-    border-radius: 10px;
-    border-color: #172c66;
-  }
-  .indexLink {
-    text-decoration: none;
+    border-radius: 30px;
+    border-color: #8bd3dd;
   }
   .petName {
     font-family: 'Lilita One', cursive;
@@ -276,18 +280,18 @@ ul {
     max-height: 400px;
     align-content: center;
     align-self: center;
-        max-width: 350px;
-        min-width: 300px;
-        min-height: 100px;
-        border-style: solid;
-        border-width: 3px;
-        border-color: #001858;
-        border-radius: 4px;
-        margin:auto; 
+    height: 350px;
+    width: 300px;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #001858;
+    margin:auto; 
        
   }
   .indexAge {
    text-align: center;
+   color: #172c66;
   }
 
   .indexLocation {
@@ -295,42 +299,31 @@ ul {
 
   }
  }
+
+ .display-pet-div {
+  width: 80%;
+  margin: 0 auto;
+ }
+ 
+ .available {
+    text-align: center;
+    color:#001858;
+ }
+ .animal-name-link {
+  text-decoration: none;
+}
 /////////
 /// SHOW
 ////////
-.showContainer {
-  display: grid;
-  grid-template-columns: 1fr;
+.showPetDiv {
+  
+  // .showPetName {
 
-  .showPet {
+  // }
+  .showPic {
     display: flex;
-    flex-direction: column;
-    margin: 10px;
-    justify-self: center;
-    justify-content: center;
-    list-style-type: none;
-    background-color: #8bd3dd;
-    padding: 10px; 
-    width: 400px;
-    margin: 10px;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #172c66;
-    text-align: center;
-    color: #001858;
-  .showPetName {
-    display: flex;
-  justify-content: center;
-  justify-self: center;
-  color: #140d0b;
-  }
-
-    
-    .showPic {
-      display: flex;
-      max-height: 400px;
-      align-content: center;
+    max-height: 400px;
+    align-content: center;
     align-self: center;
     max-width: 350px;
     min-width: 300px;
@@ -341,7 +334,9 @@ ul {
     border-color: #001858; 
     
   }
-  
+  // .showDescription {
+
+  // }
   .showBreed {
     display: flex;
     justify-content: center;
@@ -361,14 +356,15 @@ ul {
   }
   
 }
-}
-@media only screen and (min-width: 770px) {
-  /////////
-  /// NAV WIDE
-  //////////////////
-/// 
+
+ @media only screen and (min-width: 770px) {
+  // body {
+  //     // display: grid;
+  //     // grid-template-columns: auto auto auto auto;
+    
+  //   }
     .nav { 
-      width: 100%;
+    width: 100%;
     background-color: #55423d;
     display: grid;
     // justify-content: flex-end;
@@ -378,7 +374,7 @@ ul {
     1fr;  
       .headerDiv {
        
-        grid-column: 1;
+        grid-column: 1fr 2fr 1fr;
         font-family: 'Lilita One', cursive;
       
         // justify-self: flex-start;
@@ -445,6 +441,10 @@ background-color: #ffc0ad;
       padding: 10px;
       margin: 10px;
     }
+
+  .animal-name-link {
+    text-decoration: none;
+  }
     .petName {
       display: flex;
       justify-self: center;
@@ -463,67 +463,6 @@ background-color: #ffc0ad;
     }
   }
 }
-
-////////////
-/// SHOW WIDE
-/////////////
-/// 
-.showContainer {
-  display: grid;
-  grid-template-columns: 30px 2fr 1fr;
-
-  .showPet {
-    // display: flex;
-    // flex-direction: column;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin: 10px;
-    // justify-self: center;
-    // justify-content: center;
-    list-style-type: none;
-    // background-color: #8bd3dd;
-    padding: 10px; 
-   
-    margin: 15px;
-    padding: 20px;
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #001858;
-    
-    .showPic {
-      display: flex;
-      max-height: 400px;
-      align-content: center;
-    align-self: center;
-    max-width: 350px;
-    min-width: 300px;
-    min-height: 100px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #001858; 
-    
-  }
-  
-  .showBreed {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-  }
-  .showAge {
-    display: flex;
-    justify-self: center;
-    
-  }
-}
-}
-
-
-
-///////////
-/// FAVES WIDE
-/////////////
-
 
 @media (prefers-color-scheme: dark) {
 body {

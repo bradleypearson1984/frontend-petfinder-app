@@ -101,15 +101,15 @@ function Index({
        <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
             <div className="favorites">View Favorites</div>
         </Link>
-        
       </div>
-     
+      
+      <div className='display-pet-div'>
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
-      <div>
+      </div>
         <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
       </div>
 
-    </div>
+   
   );
 }
 
