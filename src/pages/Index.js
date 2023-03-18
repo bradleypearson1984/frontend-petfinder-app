@@ -29,7 +29,19 @@ function Index({
       if (/^\d{5}$/.test(zipcode)) {
         setIsZipcodeProvided(true);
       } else {
-        alert('Please enter a valid 5-digit zipcode.');
+      // add temporary error message to submit only valid zipcodes to className = "location-error"
+        // style the error message to display in red
+        document.querySelector('.location-error').style.color = 'red';
+        document.querySelector('.location-error').innerHTML = 'Please enter a valid zipcode';
+
+        setTimeout(() => {
+          document.querySelector('.location-error').innerHTML = '';
+        }
+        , 3000);
+
+        
+
+        
       }
     };
     
@@ -76,10 +88,10 @@ function Index({
   }, [animalType, setAnimals, zipcode]);
 
   useEffect(() => {
-    if (isZipcodeProvided) {
+    if (isZipcodeProvided && /^\d{5}$/.test(zipcode)) {
       handleGetAnimals();
     }
-  }, [zipcode, animalType, handleGetAnimals, isZipcodeProvided]);
+  }, [isZipcodeProvided, handleGetAnimals, zipcode, animalType]);
   
 
   
@@ -88,12 +100,13 @@ function Index({
   return (
     <div>
       <div className='location-search' >
-
+      
       <form onSubmit={handleZipcodeSubmit}>
         <label htmlFor="zipcode">Zipcode:</label>
         <input type="text" id="zipcode" name="zipcode" value={zipcode} onChange={handleZipcodeChange} />
         <button type="submit" >Search</button>
       </form>
+      <div className="location-error"></div>
       </div>
       <div className='animals-button'>
         <input className='dog-button'
