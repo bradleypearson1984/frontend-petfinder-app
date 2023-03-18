@@ -14,10 +14,12 @@ const ShowPet = (props) => {
     }, 2000) };
 
  return (
+  <div className='showContainer'>
+
     <div className='showPet'>
       <h1 className='showPetName'>{pet.name}</h1>
 
-      <img src={pet.photos[0].medium} alt={pet.name} />
+      <img className='showPic' src={pet.photos[0].medium} alt={pet.name} />
       <p>{pet.description}</p>
       <p>{pet.breed}</p>
       <p>{pet.age}</p>
@@ -45,9 +47,10 @@ const ShowPet = (props) => {
       value="Add to favorites" 
       onClick={addToFavorites} /></p>
       {/* add return to index button */}
-      <p><input type="submit" value="Return to index" onClick={() =>navigate('/')} /></p>
+      <p><input className='return' type="submit" value="Return to index" onClick={() =>navigate('/')} /></p>
       
     </div>
+      </div>
   )
 }
 

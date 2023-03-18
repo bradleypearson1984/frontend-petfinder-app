@@ -10,12 +10,12 @@ const Favorites = (props) => {
           <div className="favoritePetRow">
           
           <div className='favoritePetCard'>
-          <Link to={`/pet/${pet.id}`} onClick = {()=>props.setSelectedPet(pet)}>
-          <h3 className="">{pet.name}</h3>
-          <img className="" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
-          <h4 className=''>{pet.age}</h4>{"    "}
-          <h4>{pet.gender}</h4>{"    "}
-          <h4>{pet.breeds ? pet.breeds.primary:""}</h4> 
+          <Link className='faveLink' to={`/pet/${pet.id}`} onClick = {()=>props.setSelectedPet(pet)}>
+          <h3 className="favoriteName">{pet.name}</h3>
+          <img className="favoritePic" src={pet.photos.length>0? pet.photos[0].small: ""} alt={pet.name} />
+          <h4 className='favoriteAge'>{pet.age}</h4>{"    "}
+          <h4 className='favoriteGender'> {pet.gender}</h4>{"    "}
+          <h4 className='favoriteBreed' >{pet.breeds ? pet.breeds.primary:""}</h4> 
           </Link>
           <button className="deleteButton" onClick={() => props.deletePets(pet._id)}>Delete</button>
           </div>
