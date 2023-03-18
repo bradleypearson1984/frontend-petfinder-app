@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
@@ -17,7 +17,22 @@ function Index({
   deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
  
 
-
+    const [zipcode, setZipcode] = useState('');
+    const [isZipcodeProvided, setIsZipcodeProvided] = useState(false);
+  
+    const handleZipcodeChange = (event) => {
+      setZipcode(event.target.value);
+    };
+  
+    const handleZipcodeSubmit = (event) => {
+      event.preventDefault();
+      if (/^\d{5}$/.test(zipcode)) {
+        setIsZipcodeProvided(true);
+      } else {
+        alert('Please enter a valid 5-digit zipcode.');
+      }
+    };
+    
 
   const handleAnimalTypeChange = (event) => {
     setAnimalType(event.target.value);
@@ -32,7 +47,7 @@ function Index({
     })
       .then(response => {
         token = response.data.access_token;
-        return axios.get(`${API_ENDPOINT}/animals?type=${animalType}&page=1`, {
+        return axios.get(`${API_ENDPOINT}/animals?type=${animalType}&location=${zipcode}&page=1`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -58,17 +73,28 @@ function Index({
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals]);
+  }, [animalType, setAnimals, zipcode]);
 
   useEffect(() => {
-    handleGetAnimals();
-  }, [handleGetAnimals]);
+    if (isZipcodeProvided) {
+      handleGetAnimals();
+    }
+  }, [zipcode, animalType, handleGetAnimals, isZipcodeProvided]);
+  
 
   
     
 
   return (
     <div>
+      <div className='location-search' >
+
+      <form onSubmit={handleZipcodeSubmit}>
+        <label htmlFor="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" name="zipcode" value={zipcode} onChange={handleZipcodeChange} />
+        <button type="submit" >Search</button>
+      </form>
+      </div>
       <div className='animals-button'>
         <input className='dog-button'
           type="radio"
