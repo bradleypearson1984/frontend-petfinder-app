@@ -279,9 +279,9 @@ ul {
 ////////
 .showPetDiv {
   
-  .showPetName {
+  // .showPetName {
 
-  }
+  // }
   .showPic {
     display: flex;
     max-height: 400px;
@@ -295,9 +295,9 @@ ul {
         border-color: #001858; 
 
   }
-  .showDescription {
+  // .showDescription {
 
-  }
+  // }
   .showBreed {
     display: flex;
     justify-self: center;
@@ -309,11 +309,11 @@ ul {
   }
 }
  @media only screen and (min-width: 770px) {
-  body {
-      // display: grid;
-      // grid-template-columns: auto auto auto auto;
+  // body {
+  //     // display: grid;
+  //     // grid-template-columns: auto auto auto auto;
     
-    }
+  //   }
     .nav { 
     width: 100%;
     background-color: #55423d;
@@ -398,10 +398,10 @@ background-color: #ffc0ad;
       justify-self: center;
       justify-content: center;
     }
-    .indexAge {
+    // .indexAge {
       
-      // overflow: scroll;
-    }
+    //   // overflow: scroll;
+    // }
    
   }
 }
