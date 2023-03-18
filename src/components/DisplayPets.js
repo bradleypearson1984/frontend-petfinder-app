@@ -26,7 +26,7 @@ function DisplayPets({dbAnimals, animals, animalType, selectedPet, setSelectedPe
       <ul>
         {dbAnimals.map(dbAnimal => (
           <li className="indexCard" key={dbAnimal._id}>
-            <Link to={`/pet/${dbAnimal.id}`} onClick = {()=> setSelectedPet(dbAnimal)}>
+            <Link className="petLink" to={`/pet/${dbAnimal.id}`} onClick = {()=> setSelectedPet(dbAnimal)}>
               <h2 className="petName">{dbAnimal.name}</h2>
               <img className="pic" src={dbAnimal.photos.length > 0 ? dbAnimal.photos[0].medium : ''} alt={dbAnimal.name} />
             </Link>
