@@ -94,9 +94,9 @@ background-color: #ffc0ad;
     }
 
 
-////////
-/// INDEX
-//////////
+////////////////
+/// INDEX-SELECTOR
+/////////////////
 
  .animals-button {
   padding-top: 5rem;
@@ -152,59 +152,96 @@ background-color: #ffc0ad;
   background-color: #fa0000;
  }
 
-
+//////////////////
+/// FAVES 
+//////////////////
 .favoritePetsContainer {
   // put into cards with name on top, image in middle, and age, gender, location on bottom
-  display:flexbox;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  background-color: #9656a1;
+  display: grid;
+  grid-template-columns: 1fr; 
+
   // all items in center
-  
+  .faveLink {
+  text-decoration: none;
+  }
   
   .favoritePetCard {
     display: flex;
-    padding: 10px;
-    
-    justify-self: center;
-    justify-content: center;
-    list-style-type: none;
-    background-color: #8bd3dd;
+    flex-direction: column;
+   
+    // justify-self: center;
+    // justify-content: center;
+    // list-style-type: none;
+    // background-color: #8bd3dd;
     padding: 10px; 
     // fit card to image and text
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
+    padding: 10px;
     margin: 10px;
-    border-width: 3px;
+    border-width: 5px;
     border-style: solid;
-    border-radius: 30px;
-    border-color: #001858;
+    border-radius: 10px;
+    border-color: #f582ae;
     // center text
     text-align: center;
     // center image
     align-items: center;
+  .favoriteName , 
+  .favoriteAge, 
+  .favoriteGender, 
+  .favoriteBreed {
+  color: #001858; 
+    }
   }
+  .favoritePic {
+    display: flex;
+    max-height: 400px;
+    align-content: center;
+    align-self: center;
+        max-width: 350px;
+       
+        min-height: 200px;
+        border-style: solid;
+        border-width: 3px;
+        border-radius: 4px;
+        border-color:#172c66;
+        margin:auto; 
+  }
+  .deleteButton {
+    border: none;
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 6px;
 
+    
+  }
 }
 
 
-.favoritePetRow {
- display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 10px;
+
+
+// .favoritePetRow {
+//  display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-template-rows: auto;
+//   grid-gap: 10px;
+//   justify-content: center;
+//   justify-items: center;
+//   align-items: center;
+//   align-content: center;
+// }
+
+////////////////
+///MAIN INDEX
+////////////////
+
+.available {
+  display: flex;
   justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
+  justify-self: center;
+  color: #140d0b;
 }
-
-
 
 ul {
   
@@ -223,8 +260,9 @@ ul {
     padding: 10px; 
     width: 400px;
     margin: 10px;
-    border-width: 3px;
+    border-width: 5px;
     border-style: solid;
+
     border-radius: 30px;
     border-color: #8bd3dd;
   }
@@ -232,6 +270,7 @@ ul {
     font-family: 'Lilita One', cursive;
     display: flex;
     justify-content: center;
+    text-decoration: none;
   }
 
   
@@ -242,6 +281,7 @@ ul {
     max-height: 400px;
     align-content: center;
     align-self: center;
+
     height: 350px;
     width: 300px;
     overflow: hidden;
@@ -277,43 +317,79 @@ ul {
 /////////
 /// SHOW
 ////////
-.showPetDiv {
-  
-  // .showPetName {
+.showContainer {
+  display: grid;
+  grid-template-columns: 1fr;
 
-  // }
-  .showPic {
+  .showPet {
+
     display: flex;
-    max-height: 400px;
-    align-content: center;
-    align-self: center;
-        max-width: 350px;
-        min-width: 300px;
-        min-height: 100px;
-        border-style: solid;
-        border-width: 3px;
-        border-color: #001858; 
-
+    flex-direction: column;
+    margin: 10px;
+    justify-self: center;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #8bd3dd;
+    padding: 10px; 
+    width: 400px;
+    margin: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #172c66;
+    text-align: center;
+    color: #001858;
+  .showPetName {
+    display: flex;
+  justify-content: center;
+  justify-self: center;
+  color: #140d0b;
   }
   // .showDescription {
 
-  // }
+    
+    .showPic {
+      display: flex;
+      max-height: 400px;
+      align-content: center;
+    align-self: center;
+    max-width: 350px;
+    min-width: 300px;
+    min-height: 100px;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 3px;
+    border-color: #001858; 
+    
+  }
+  
+
   .showBreed {
     display: flex;
-    justify-self: center;
+    justify-content: center;
+    text-decoration: none;
   }
   .showAge {
     display: flex;
     justify-self: center;
-
-  }
-}
- @media only screen and (min-width: 770px) {
-  // body {
-  //     // display: grid;
-  //     // grid-template-columns: auto auto auto auto;
     
-  //   }
+  }
+  #favorites, .return {
+    background-color: #f582ae;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 6px;
+  }
+  
+}
+}
+@media only screen and (min-width: 770px) {
+  /////////
+  /// NAV WIDE
+  //////////////////
+/// 
+
     .nav { 
     width: 100%;
     background-color: #55423d;
@@ -369,14 +445,17 @@ background-color: #ffc0ad;
         }
       }
     }
-    
+    ////////////
+    /// MAIN WIDE
+    ///////////////
+    .available {
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      color: #140d0b;
+    }
     
     .displayPetDiv {
-      .available {
-        display: flex;
-        justify-content: center;
-        justify-self: center;
-      }
       ul {
      display: grid;
      grid-template-columns: auto auto auto ;
@@ -406,9 +485,77 @@ background-color: #ffc0ad;
   }
 }
 
+////////////
+/// SHOW WIDE
+/////////////
+/// 
+.showContainer {
+  display: grid;
+  grid-template-columns: 30px 2fr 1fr;
+
+  .showPet {
+    // display: flex;
+    // flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin: 10px;
+    // justify-self: center;
+    // justify-content: center;
+    list-style-type: none;
+    // background-color: #8bd3dd;
+    padding: 10px; 
+   
+    margin: 15px;
+    padding: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #001858;
+    
+    .showPic {
+      display: flex;
+      max-height: 400px;
+      align-content: center;
+    align-self: center;
+    max-width: 350px;
+    min-width: 300px;
+    min-height: 100px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #001858; 
+    
+  }
+  
+  .showBreed {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .showAge {
+    display: flex;
+    justify-self: center;
+    
+  }
+}
+}
+
+
+
+///////////
+/// FAVES WIDE
+/////////////
+
+
 @media (prefers-color-scheme: dark) {
 body {
   background-color: #55423d;
+}
+
+//////
+/// INDEX DARK
+////////
+.available {
+  color: #fffffe ;
 }
 .displayPetDiv {
 
@@ -419,15 +566,54 @@ body {
     justify-self: center;
     justify-content: center;
     list-style-type: none;
-    background-color: #9656a1;
+    background-color: #140d0b;
     border-style: solid;
+    border-color: #9656a1;
     border-width: 3px;
-    border-color: #271c19;
+    
   }
   img {
     border-style: solid;
     border-width: 3px;
-    border-color: #ffc0ad;
+    border-color: #9656a1
   }
+  .indexAge, .indexLocation, .petName {
+    color: #fff3ec;
+    
+
+  }
+
 }
+}
+//////
+/// FAVE DARK
+/////// 
+.favoritePetCard {
+  background-color: #140d0b;
+  
+  border-color: #9656a1 !important;
+}
+.favoritePic {
+  border-color: #9656a1;
+}
+.favoriteName, .favoriteAge, .favoriteGender, .favoriteBreed {
+  color: #fef6e4;
+}
+
+/////
+/// SHOW DARK
+/////////
+/// 
+/// 
+.showPet {
+  background-color: #140d0b;
+background-color: #9656a1;
+color: #fffffe;
+}
+.showPetName, .showAge, .showGender {
+  color: #fffffe;
+}
+
+.showPic {
+  border-color: #9656a1;
 }
