@@ -9,8 +9,9 @@ const ShowPet = (props) => {
     props.createPets(pet);
     document.getElementById("favorite-added").innerHTML = "Added to favorites"; 
     document.getElementById("favorites").disabled = true;
+    document.getElementById("favorites").value="I am your favorite ❤ ";
     setTimeout(function(){
-      document.getElementById("favorite-added").innerHTML = "";
+      document.getElementById("favorite-added").innerHTML = "Take me home";
     }, 2000) };
 
  return (
