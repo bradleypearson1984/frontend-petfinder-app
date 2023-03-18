@@ -10,7 +10,8 @@ function DisplayPets({dbAnimals, animals, animalType, selectedPet, setSelectedPe
       <ul>
         {animals.map(animal => (
           <li className="indexCard" key={animal._id}>
-            <Link className="indexLink" to={`/pet/${animal.id}`} onClick = {()=> setSelectedPet(animal)}>
+
+            <Link className='animal-name-link' to={`/pet/${animal.id}`} onClick = {()=> setSelectedPet(animal)}>
               <h2 className="petName">{animal.name}</h2>
               <img className="pic" src={animal.photos.length > 0 ? animal.photos[0].medium : ''} alt={animal.name} />
             </Link>
@@ -26,7 +27,7 @@ function DisplayPets({dbAnimals, animals, animalType, selectedPet, setSelectedPe
       <ul>
         {dbAnimals.map(dbAnimal => (
           <li className="indexCard" key={dbAnimal._id}>
-            <Link className="petLink" to={`/pet/${dbAnimal.id}`} onClick = {()=> setSelectedPet(dbAnimal)}>
+            <Link to={`/pet/${dbAnimal.id}`} onClick = {()=> setSelectedPet(dbAnimal)}>
               <h2 className="petName">{dbAnimal.name}</h2>
               <img className="pic" src={dbAnimal.photos.length > 0 ? dbAnimal.photos[0].medium : ''} alt={dbAnimal.name} />
             </Link>
