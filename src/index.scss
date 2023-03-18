@@ -29,64 +29,69 @@ h1 {
 /// HEADER
 //////////
 .nav { 
-  width: 100%;
-background-color: #55423d;
-display: grid;
+ 
+  background-color: #55423d;
+  display: grid;
 // justify-content: flex-end;
-grid-template-columns: 
-1fr
-2fr
-1fr;  
+}
   .headerDiv {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
     background-color: #55423d;
-    grid-column: 1;
     font-family: 'Lilita One', cursive;
     font-size: 25px;
-    padding: 5px;
-  
+    margin-left: 3rem;
+    color: white;
     // justify-self: flex-start;
     // align-self:flex-start;
   }
+
+  
+
   ul {
     display: flex;
     list-style: none;
     grid-column: 3;
     padding: 5px;
-    .welcome {
-  // margin: 5px;
-  max-width: 70px;
-  font-family: 'Lilita One', cursive;
-      
-    
-    }
-    .google-profile-pic {
-      grid-column: 3;
+  }
+
+  .welcome {
+    display: flex;
+    padding-top: 1rem;
+    margin-right: 4rem;
+    color: white;
+    text-align: center;
+  }
+
+  .google-profile-pic {
       border-radius: 50%;
-      margin: 5px;
       max-width: 50px;
     }
-    .buttonArea {
-    display: flex;
-    align-items: center;
+  .pic-google-li {
+    margin-left: 2rem;
+  }
+    
+
+ .buttonArea {
+    margin: 2rem;
     }
-    .logoutButton {
+
+  .logoutButton {
+    margin-left: 1rem;
 align-content: center;
 border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
 
-    }
-    .loginButton {
+}
+
+  .loginButton {
       align-content: center;
-border: none;
+      border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
 
     }
-  }
-}
 
 
 ////////
@@ -96,12 +101,13 @@ background-color: #ffc0ad;
  .animals-button {
   padding-top: 5rem;
   margin-left: 6rem;
+  color:#001858
 
  }
 
  .animals-button label {
   display: inline-block;
-    background-color: #cbdaf6;
+    background-color: #f582ae;
     padding: 10px 20px;
     font-family: sans-serif, Arial;
     font-size: 16px;
@@ -204,6 +210,7 @@ ul {
   
     display: grid;
     grid-template-columns: 1fr;
+    font-family: 'Lilita One', cursive;
 
   .indexCard {
     display: flex;
@@ -212,14 +219,14 @@ ul {
     justify-self: center;
     justify-content: center;
     list-style-type: none;
-    background-color: #8bd3dd;
+    background-color: #f3d2c1;
     padding: 10px; 
     width: 400px;
     margin: 10px;
     border-width: 3px;
     border-style: solid;
     border-radius: 30px;
-    border-color: #001858;
+    border-color: #8bd3dd;
   }
   .petName {
     font-family: 'Lilita One', cursive;
@@ -246,6 +253,7 @@ ul {
   }
   .indexAge {
    text-align: center;
+   color: #172c66;
   }
 
   .indexLocation {
@@ -266,7 +274,6 @@ ul {
  .animal-name-link {
   text-decoration: none;
 }
-
 /////////
 /// SHOW
 ////////
@@ -275,7 +282,6 @@ ul {
   // .showPetName {
 
   // }
-
   .showPic {
     display: flex;
     max-height: 400px;
@@ -292,7 +298,6 @@ ul {
   // .showDescription {
 
   // }
-
   .showBreed {
     display: flex;
     justify-self: center;
@@ -309,9 +314,8 @@ ul {
   //     // grid-template-columns: auto auto auto auto;
     
   //   }
-
     .nav { 
-      width: 100%;
+    width: 100%;
     background-color: #55423d;
     display: grid;
     // justify-content: flex-end;
@@ -321,7 +325,7 @@ ul {
     1fr;  
       .headerDiv {
        
-        grid-column: 1;
+        grid-column: 1fr 2fr 1fr;
         font-family: 'Lilita One', cursive;
       
         // justify-self: flex-start;
@@ -375,7 +379,7 @@ background-color: #ffc0ad;
       }
       ul {
      display: grid;
-     grid-template-columns: auto auto auto auto ;
+     grid-template-columns: auto auto auto ;
      max-width: 400px; 
      min-height: 400px;
       padding: 20px; 
@@ -398,7 +402,6 @@ background-color: #ffc0ad;
       
     //   // overflow: scroll;
     // }
-
    
   }
 }

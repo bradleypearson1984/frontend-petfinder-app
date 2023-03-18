@@ -1,4 +1,3 @@
-
 import { login, logout } from '../firebase.js';
 import {Link} from 'react-router-dom';
 
