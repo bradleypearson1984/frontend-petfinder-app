@@ -32,6 +32,7 @@ h1 {
  
   background-color: #55423d;
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 // justify-content: flex-end;
 }
   .headerDiv {
@@ -61,9 +62,11 @@ h1 {
     margin-right: 4rem;
     color: white;
     text-align: center;
+    grid-column: 2;
   }
 
   .google-profile-pic {
+    grid-column: 3 / end;
       border-radius: 50%;
       max-width: 50px;
     }
@@ -73,10 +76,13 @@ h1 {
     
 
  .buttonArea {
+  grid-column: 3 / end;
+  justify-content: right;
     margin: 2rem;
     }
 
   .logoutButton {
+    
     margin-left: 1rem;
 align-content: center;
 border: none;
@@ -338,7 +344,7 @@ ul {
 
   .showPet {
 
-    display: grid;
+    // display: grid;
     grid-template-columns: 1fr ;
     margin: 10px;
     justify-self: center;
@@ -377,31 +383,33 @@ ul {
     border-color: #001858; 
     
   }
-  
+  .showInfoContainer {
 
-  .showBreed {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-  }
-  .showAge {
-    display: flex;
-    justify-self: center;
     
+    .showBreed {
+      display: flex;
+      justify-self: center;
+      text-decoration: none;
+    }
+    .showAge {
+      display: flex;
+      justify-self: center;
+      
+    }
   }
-  #favorites, .return {
-    background-color: #f582ae;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-  transition: all .1s ease-in-out; 
-}
-
-#favorites:hover { 
-  transform: scale(1.1); 
-}
+    #favorites, .return {
+      background-color: #f582ae;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all .1s ease-in-out; 
+    }
+    
+    #favorites:hover { 
+      transform: scale(1.1); 
+    }
   }
   cursor: pointer;
   transition: all .1s ease-in-out; 
@@ -410,7 +418,7 @@ ul {
 .return:hover { 
   transform: scale(1.1); 
 }
-  
+
 
 
 /////////////
@@ -566,27 +574,38 @@ background-color: #ffc0ad;
 .showContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
-.showPet {
-  // display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  .showPet {
+    display: grid;
   min-width: 700px;
   max-width: none;
   grid-column: 1 / span 3;
   padding: 10px;
   // flex-direction: column;
- 
-  .showPic, .showPetName, {
+  
+  .showPic,  {
     grid-column: 1 / span 1;
+    grid-row: 1;
     justify-self: start;
+  }
+  .showPetName {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .showDescription {
+    grid-row: 2;
+    width: 400px;
+    text-align: start;
+    margin: 5px;
+    padding: 5px;
+ 
     }
-    .showDescription {
-      width: 400px;
-      text-align: start;
-      margin: 5px;
-    }
-    .showAge, .showGender, .showBreed, .show.vid,
+    .showAge, .showGender,
     .showStatus, .showEmail, .showPhone, {
-      grid-column: 2 / span 1;
+      grid-column: 3;      
+    }
+    .showBreed {
+      grid-column: 3;
     }
   }
 }  
