@@ -82,16 +82,30 @@ align-content: center;
 border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
-
+cursor: pointer;
+  transition: all .1s ease-in-out; 
 }
+
+.logoutButton:hover { 
+  transform: scale(1.1); 
+}
+
+
 
   .loginButton {
       align-content: center;
       border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
+cursor: pointer;
+  transition: all .1s ease-in-out; 
+}
 
-    }
+.loginButton:hover { 
+  transform: scale(1.1); 
+}
+
+    
 
 
 ////////////////
@@ -160,6 +174,9 @@ background-color: #ffc0ad;
   display: grid;
   grid-template-columns: 1fr; 
   font-family:  'Lilita One', cursive;
+  :hover.favoritePetCard{
+    border-color: #f582ae;
+  }
 
   // all items in center
   .faveLink {
@@ -182,12 +199,13 @@ background-color: #ffc0ad;
     // center text
     text-align: center;
     // center image
+   
     align-items: center;
-  .favoriteName , 
-  .favoriteAge, 
-  .favoriteGender, 
-  .favoriteBreed {
-  color: #001858; 
+    .favoriteName , 
+    .favoriteAge, 
+    .favoriteGender, 
+    .favoriteBreed {
+      color: #001858; 
     }
   }
   .favoritePic {
@@ -204,15 +222,20 @@ background-color: #ffc0ad;
         border-color:#172c66;
         margin:auto; 
   }
-  .deleteButton {
-    border: none;
-    color: white;
-    background-color: red;
-    padding: 10px 20px;
-    border-radius: 6px;
 
-    
-  }
+.deleteButton {
+  border: none;
+  color: white;
+  background-color: red;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .1s ease-in-out; 
+}
+
+.deleteButton:hover { 
+  transform: scale(1.1); 
+}
 }
 
 
@@ -234,6 +257,9 @@ ul {
     display: grid;
     grid-template-columns: 1fr;
     font-family: 'Lilita One', cursive;
+    :hover.indexCard{
+      border-color: #f582ae;
+    }
 
   .indexCard {
     display: flex;
@@ -306,6 +332,9 @@ ul {
 .showContainer {
  display: grid;
  grid-template-columns: 1fr;
+ :hover.showPet{
+  border-color: #f582ae;
+}
 
   .showPet {
 
@@ -366,10 +395,24 @@ ul {
     padding: 10px 20px;
     color: white;
     border-radius: 6px;
+    cursor: pointer;
+  transition: all .1s ease-in-out; 
+}
+
+#favorites:hover { 
+  transform: scale(1.1); 
+}
   }
+  cursor: pointer;
+  transition: all .1s ease-in-out; 
+}
+
+.return:hover { 
+  transform: scale(1.1); 
+}
   
-}
-}
+
+
 /////////////
 /// FAVES WIDE
 /////////////
@@ -377,6 +420,9 @@ ul {
 
   ul {
     .favoritePetsContainer {
+      :hover.favoritePetCard{
+        border-color: #f582ae;
+      }
       
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -386,12 +432,13 @@ ul {
         grid-template-columns: 1fr 1fr;
         min-width: 600px; 
         min-height: 400px;
+        
         }
         .favoritePic {
           min-height: 300px;
         }
         .favoriteAge, .favoriteGender, 
-        .favoriteBreed {
+        .fav {
           grid-column: 2 / span 1;
         }
         .deleteButton {
@@ -588,6 +635,9 @@ body {
     color: #fffffe ;
   }
   .displayPetDiv {
+    :hover.indexCard{
+      border-color: #f582ae;
+    }
     
     .indexCard {
       display: flex;
@@ -618,11 +668,15 @@ body {
   /// FAVE DARK
   /////// 
   .favoritePetsContainer {
+    :hover.favoritePetCard {
+      border-color: #06c1fa;
+    }
 
     .favoritePetCard {
       background-color: #140d0b;
       
       border-color: #9656a1;
+     
       .favoriteName , 
   .favoriteAge, 
   .favoriteGender, 
@@ -636,6 +690,7 @@ body {
     .favoriteName, .favoriteAge, .favoriteGender, .favoriteBreed {
       color: #fef6e4;
     }
+    
   }
     
   /////
